@@ -2,9 +2,7 @@ import React,{useState} from 'react';
 import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
 import { Color, FontFamily } from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
-// import { format } from "date-fns";
-// import ko from "date-fns/esm/locale/ko/index.js";
-// import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 const Registration2 = ({buttonCallBack}) => {
   const [visible, setVisible] = useState(false); // 모달 노출 여부
   const [date, onChangeDate] = useState(new Date()); // 선택 날짜
@@ -14,9 +12,9 @@ const Registration2 = ({buttonCallBack}) => {
     setVisible(true); // 모달 open
   };
 
-  const onConfirm = (selectedDate) => { // 날짜 또는 시간 선택 시
+  const onConfirm = (event, date) => { // 날짜 또는 시간 선택 시
     setVisible(false); // 모달 close
-    onChangeDate(selectedDate); // 선택한 날짜 변경
+    onChangeDate(date); // 선택한 날짜 변경
     // buttonCallBack();
     setIsYear(true);
   };
@@ -39,13 +37,12 @@ const Registration2 = ({buttonCallBack}) => {
           <Text style={styles.subtext}>수정을 원하시면 탭하여 주세요.</Text>
         </View>
       </View>
-      {/* <DateTimePickerModal
-        isVisible={visible}
+      {visible && <DateTimePicker
         mode={"date"}
         display={"spinner"}
-        onConfirm={onConfirm}
-        onCancel={onCancel}
-        date={date} /> */}
+        onChange={onConfirm}
+        value={date} />
+    }
     </>
   );
 };

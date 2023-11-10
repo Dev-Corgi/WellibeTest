@@ -1,24 +1,21 @@
 import React from 'react';
 import { StyleSheet, Image, View,Text } from 'react-native';
 import { Color, FontFamily } from '../GlobalStyles';
-// import LinearGradient from 'react-native-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 import Button1 from '../components/Button1';      
 import {useNavigation} from '@react-navigation/native';
 import MessageBubble from '../components/MessageBubble';
 const Intro = () => {
-
-  const sloganMessage = "삶을 바꾸는\n건강한 자신감"
-  const subSloganMessage = "1분 만에 루틴 추천맏고\n건강한 자신감을 만들어보세요"
 
   const navigation = useNavigation();
 
   return (
     <View style={styles.view}>
     <Image style = {styles.background} source={require("../assets/img/introBackground.png")}/>
-    {/* <LinearGradient
+    <LinearGradient
       colors={['#ffffff00', '#ffffffff']}
       style={styles.foreground}
-    /> */}
+    />
       <View style = {styles.messageFrame}>
         <MessageBubble message = {"반갑습니다."}></MessageBubble>
         <MessageBubble message = {"저는 AI코치 웰리입니다."}></MessageBubble>
