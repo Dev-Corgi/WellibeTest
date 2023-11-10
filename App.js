@@ -13,7 +13,7 @@ import AppLoading from "expo-app-loading";
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef();
 
-const update = "h11";
+const update = "h111";
 
 function App() {
 
