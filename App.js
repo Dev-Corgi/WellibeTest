@@ -13,6 +13,8 @@ import AppLoading from "expo-app-loading";
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef();
 
+const update = "h1";
+
 function App() {
 
   let [fontsLoaded] = useFonts({
