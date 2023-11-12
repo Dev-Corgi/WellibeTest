@@ -3,11 +3,15 @@ import {useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack'; // Stack 네비게이션
 import {StyleSheet, Image, View, Text, Easing} from 'react-native';
 import {Color, FontFamily} from '../GlobalStyles';
+
 import Button1 from '../components/Button1';
+
 import Registration1 from './Registration1';
 import Registration2 from './Registration2';
 import Registration3 from './Registration3';
 import Registration4 from './Registration4';
+import Registration5 from './Registration5';
+import Registration6 from './Registration6';
 
 const Registration = () => {
   const Stack = createNativeStackNavigator();
@@ -25,6 +29,8 @@ const Registration = () => {
     {name: 'Registration2', screen: Registration2},
     {name: 'Registration3', screen: Registration3},
     {name: 'Registration4', screen: Registration4},
+    {name: 'Registration5', screen: Registration5},
+    {name: 'Registration6', screen: Registration6},
   ];
 
   const onPressHandler = () => {
