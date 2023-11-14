@@ -9,7 +9,7 @@ import Intro from "./src/screens/Intro";
 import Registration from "./src/screens/Registration";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
-
+import PlanCheck from "./src/screens/PlanCheck";
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef();
 
@@ -29,7 +29,7 @@ function App() {
   return(
     <NavigationContainer ref={navigationRef}>
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen
+      {/* <Stack.Screen
         name="LogIn"
         component={Login}
         options={{ headerShown: false }}
@@ -42,6 +42,11 @@ function App() {
       <Stack.Screen
         name="Registration"
         component={Registration}
+        options={{ headerShown: false }}
+      /> */}
+            <Stack.Screen
+        name="PlanCheck"
+        component={PlanCheck}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

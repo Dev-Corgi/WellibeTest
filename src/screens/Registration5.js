@@ -11,6 +11,7 @@ const Registration5 = () => {
         text={'적절한 트레이닝 추천에 필요해요!'}></RegistrationInfo>
       <View style={styles.contentFrame}>
         <SelectionList
+        style={{gap : 10}}
           selections={[
             '풍부한 표정을 만들고 싶어요',
             '얼굴 비대칭이 고민이에요',

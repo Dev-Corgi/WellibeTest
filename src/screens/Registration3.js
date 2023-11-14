@@ -11,7 +11,7 @@ const Registration3 = ({buttonCallBack}) => {
         style={{marginTop: 26}}
         text={'서비스 고도화를 위해 저희만 알고 있을게요'}></RegistrationInfo>
       <View style={styles.contentFrame}>
-          <SelectionList selections={['남성', '여성', '기타']}></SelectionList>
+          <SelectionList style={{gap : 10}} selections={['남성', '여성', '기타']}></SelectionList>
       </View>
     </View>
   );
