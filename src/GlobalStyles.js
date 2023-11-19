@@ -5,7 +5,8 @@ export const FontFamily = {
     PretendardBold : "PretendardBold",
     PretendardRegular : "PretendardRegular",
     PretendardSemiBold : "PretendardSemiBold",
-    PretendardLight : "PretendardLight"
+    PretendardLight : "PretendardLight",
+    PretendardMedium : "PretendardMedium"
   };
   /* font sizes */
   export const FontSize = {
@@ -26,6 +27,9 @@ export const FontFamily = {
     colorGray_200: "#262626",
     navy: "#071027",
     colorGray_300: "rgba(0, 0, 0, 0.85)",
+    colorGray_400: "#7C7C7C",
+    colorGray_500: "#BDBDBD",
+    colorGray_600: "#BEBEBE",
     grey: "#616161",
     colorKhaki: "#f5d460",
     colorWhitesmoke_100: "#f8f8f8",
@@ -37,6 +41,7 @@ export const FontFamily = {
     mediumGrey: "#bcbcbc",
     lightGrey: "#e4e4e4",
     subBlue: "#009dff",
+    orange : "#EB920C"
   };
   /* Paddings */
   export const Padding = {

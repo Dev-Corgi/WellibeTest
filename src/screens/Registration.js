@@ -15,6 +15,7 @@ import Registration6 from './Registration6';
 import Registration7 from './Registration7';
 import Registration8 from './Registration8';
 import Registration9 from './Registration9';
+import Registration10 from './Registration10';
 
 const Registration = () => {
   const Stack = createNativeStackNavigator();
@@ -38,7 +39,8 @@ const Registration = () => {
     {name: 'Registration6', screen: Registration6},
     {name: 'Registration7', screen: Registration7},
     {name: 'Registration8', screen: Registration8},
-    {name: 'Registration9', screen: Registration9}
+    {name: 'Registration9', screen: Registration9},
+    {name: 'Registration10', screen: Registration10}
   ];
 
   const onPressHandler = () => {
@@ -82,7 +84,7 @@ const Registration = () => {
         </Stack.Navigator>
         <Button1
           style={{position: 'absolute', bottom: 36}}
-          text={'다움'}
+          text={'다음'}
           onPress={onPressHandler}></Button1>
       </View>
     </View>

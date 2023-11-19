@@ -22,7 +22,7 @@ const Registration9 = () => {
           <Text style = {styles.loadingText}>사용자 정보를 분석하고 있어요.</Text>
         </View>
       </View>
-      <ProgressBar progress={30} style={{marginTop:38.5}}></ProgressBar>
+      <ProgressBar progress={80} style={{marginTop:38.5}}></ProgressBar>
       </View>
     </View>
   );
