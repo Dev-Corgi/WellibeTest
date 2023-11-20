@@ -32,7 +32,7 @@ function App() {
   return(
     <NavigationContainer ref={navigationRef}>
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      {/* <Stack.Screen
+      <Stack.Screen
         name="LogIn"
         component={Login}
         options={{ headerShown: false }}
@@ -47,16 +47,16 @@ function App() {
         component={Registration}
         options={{ headerShown: false }}
       />
-            <Stack.Screen
+            {/* <Stack.Screen
         name="PlanCheck"
         component={PlanCheck}
         options={{ headerShown: false }}
-      /> */}
+      />
       <Stack.Screen
         name="PhotoTakenSceen"
         component={PhotoTakenSceen}
         options={{ headerShown: false }}
-      />
+      /> */}
     </Stack.Navigator>
   </NavigationContainer>
   )
