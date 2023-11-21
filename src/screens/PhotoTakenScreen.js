@@ -30,7 +30,7 @@ const PhotoTakenScreen = () => {
       <Camera
         ref={cameraRef}
         type={CameraType.front}
-        zoom={1}
+        zoom={0}
         autoFocus={AutoFocus.on}
         style = {styles.camera}
       />
