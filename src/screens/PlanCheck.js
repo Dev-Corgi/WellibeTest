@@ -3,7 +3,11 @@ import {StyleSheet, Image, View, Text,TextInput, Pressable,ScrollView} from 'rea
 import {Color,FontFamily} from '../GlobalStyles';
 import Button1 from '../components/Button1';
 import RegistrationInfo from '../components/RegistrationInfo';
+import {useNavigation} from '@react-navigation/native';
+
+
 const PlanCheck = () => {
+  const navigation = useNavigation();
   return (
     <View style = {styles.view}>
     <View style = {styles.banner}>
@@ -122,6 +126,7 @@ const PlanCheck = () => {
     <Button1
           style={{position: 'absolute', bottom: 36, marginLeft: 27}}
           text={'다음'}
+          onPress={() =>navigation.navigate("PhotoTakenSceen")}
          ></Button1>
     </View>
   );

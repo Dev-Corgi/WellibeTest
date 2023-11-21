@@ -47,7 +47,7 @@ function App() {
         component={Registration}
         options={{ headerShown: false }}
       />
-            {/* <Stack.Screen
+            <Stack.Screen
         name="PlanCheck"
         component={PlanCheck}
         options={{ headerShown: false }}
@@ -56,7 +56,7 @@ function App() {
         name="PhotoTakenSceen"
         component={PhotoTakenSceen}
         options={{ headerShown: false }}
-      /> */}
+      />
     </Stack.Navigator>
   </NavigationContainer>
   )

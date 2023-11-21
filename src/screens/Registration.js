@@ -49,8 +49,12 @@ const Registration = () => {
       if (index < maxIndex) {
         setindex(prev => prev + 1);
         setprogress(index/maxIndex * 100);
+        navigation.navigate(screenList[index].name);
       }
-      navigation.navigate(screenList[index].name);
+
+      else{
+        navigation.navigate("PlanCheck")
+      }
       // navigation.navigate(screenList[index].name,{buttonCallBack : handleButtonActive});
       // setIsButtonActive(false);
     // }
