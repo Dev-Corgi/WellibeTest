@@ -2,7 +2,6 @@ import React from 'react';
 import {StyleSheet, Image, View, Text,TextInput, Pressable,ScrollView} from 'react-native';
 import {Color,FontFamily} from '../GlobalStyles';
 import Button1 from '../components/Button1';
-import RegistrationInfo from '../components/RegistrationInfo';
 import {useNavigation} from '@react-navigation/native';
 
 

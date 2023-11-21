@@ -1,8 +1,35 @@
-import React from 'react';
-import {StyleSheet, Image, View, Text,TextInput} from 'react-native';
+import React,{useState,useEffect} from 'react';
+import {DeviceEventEmitter,StyleSheet, Image, View, Text,TextInput} from 'react-native';
 import {Color,FontFamily} from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
+import {useNavigation} from '@react-navigation/native';
 const Registration1 = () => {
+
+  const navigation = useNavigation();
+
+  const [nickName, setnickName] = useState('');
+
+  function handleRegistration () {
+    navigation.navigate("Registration2");
+  }
+
+  function handleRegistrationReady (nickName) {
+    if(nickName != ''){
+    DeviceEventEmitter.emit('RegistrationReady', { data: 'Custom event data' });
+    }
+  }
+
+  useEffect(() => {
+    DeviceEventEmitter.emit('RegistrationReset', { data: 'Custom event data' });
+
+    DeviceEventEmitter.addListener('RegistrationEvent', handleRegistration);
+
+    return () => {
+      DeviceEventEmitter.removeListener('RegistrationEvent', handleRegistration);
+    };
+  }, []);
+
+
   return (
     <View style = {styles.view}>
       <Text style={styles.title}>
@@ -12,7 +39,7 @@ const Registration1 = () => {
         style={{marginTop: 26}}
         text={'언제든 변경할 수 있어요'}></RegistrationInfo>
       <View style={styles.contentFrame}>
-        <TextInput style={styles.inputfieldFrame} placeholder='이름을 입력해 주세요'>
+        <TextInput style={styles.inputfieldFrame} placeholder='이름을 입력해 주세요' onChangeText={(inputText) => setnickName(inputText)} onEndEditing={handleRegistrationReady}>
         </TextInput>
         <Text style={styles.subtext}>수정을 원하시면 탭하여 주세요.</Text>
       </View>

@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
 import { Color, FontFamily } from '../GlobalStyles';
 
-const Button1 = ({text,style,onPress}) => {
+const Button1 = ({text,style,onPress,isActive = true}) => {
     return (
-        <Pressable style={[styles.view,style]} onPress = {onPress}>
+        <Pressable style={[styles.view,style,{backgroundColor: isActive ? Color.navy : Color.colorGray_700}]} onPress = {() => {if(isActive){onPress()}}}>
             <Text style={styles.text}>{text}</Text>
         </Pressable>
     );

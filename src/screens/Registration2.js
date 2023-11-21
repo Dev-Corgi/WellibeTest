@@ -1,9 +1,32 @@
-import React,{useState} from 'react';
-import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
+import React,{useState,useEffect} from 'react';
+import {DeviceEventEmitter, StyleSheet, Image, View, Text, Pressable } from 'react-native';
 import { Color, FontFamily } from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import {useNavigation} from '@react-navigation/native';
 const Registration2 = ({buttonCallBack}) => {
+
+  const navigation = useNavigation();
+
+  function handleRegistration () {
+    navigation.navigate("Registration3");
+  }
+
+  function handleRegistrationReady () {
+    DeviceEventEmitter.emit('RegistrationReady', { data: 'Custom event data' });
+  }
+
+  useEffect(() => {
+    DeviceEventEmitter.emit('RegistrationReset', { data: 'Custom event data' });
+    // 커스텀 이벤트를 처리하는 함수 등록
+    DeviceEventEmitter.addListener('RegistrationEvent', handleRegistration);
+
+    // 컴포넌트가 언마운트될 때 리스너 해제
+    return () => {
+      DeviceEventEmitter.removeListener('RegistrationEvent', handleRegistration);
+    };
+  }, []);
+
   const [visible, setVisible] = useState(false); // 모달 노출 여부
   const [date, onChangeDate] = useState(new Date()); // 선택 날짜
   const [isYear, setIsYear] = useState(false);
@@ -15,8 +38,8 @@ const Registration2 = ({buttonCallBack}) => {
   const onConfirm = (event, date) => { // 날짜 또는 시간 선택 시
     setVisible(false); // 모달 close
     onChangeDate(date); // 선택한 날짜 변경
-    // buttonCallBack();
     setIsYear(true);
+    handleRegistrationReady();
   };
 
   const onCancel = () => { // 취소 시

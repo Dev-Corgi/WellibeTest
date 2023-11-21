@@ -30,6 +30,7 @@ export const FontFamily = {
     colorGray_400: "#7C7C7C",
     colorGray_500: "#BDBDBD",
     colorGray_600: "#BEBEBE",
+    colorGray_700: "#EFEFEF",
     grey: "#616161",
     colorKhaki: "#f5d460",
     colorWhitesmoke_100: "#f8f8f8",

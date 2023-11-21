@@ -1,9 +1,32 @@
-import * as React from 'react';
-import {StyleSheet, Image, View, Text, Pressable} from 'react-native';
+import React,{useState,useEffect} from 'react';
+import {DeviceEventEmitter,StyleSheet, Image, View, Text, Pressable} from 'react-native';
 import {Color, FontFamily} from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
 import SelectionList from '../components/SelectionList';
+import {useNavigation} from '@react-navigation/native';
 const Registration8 = () => {
+
+  const navigation = useNavigation();
+
+  function handleRegistration () {
+    navigation.navigate("Registration9");
+  }
+
+  function handleRegistrationReady () {
+    DeviceEventEmitter.emit('RegistrationReady', { data: 'Custom event data' });
+  }
+
+  useEffect(() => {
+    DeviceEventEmitter.emit('RegistrationReset', { data: 'Custom event data' });
+    // 커스텀 이벤트를 처리하는 함수 등록
+    DeviceEventEmitter.addListener('RegistrationEvent', handleRegistration);
+
+    // 컴포넌트가 언마운트될 때 리스너 해제
+    return () => {
+      DeviceEventEmitter.removeAllListeners('RegistrationEvent');
+    };
+  }, []);
+
   return (
     <View style = {styles.view}>
       <Text style={styles.title}>{'목표하는 하루 트레이닝\n시간은 얼마나 될까요?'}</Text>
@@ -11,15 +34,12 @@ const Registration8 = () => {
         text={'5분 이상을 추천드릴게요!.'}></RegistrationInfo>
       <View style={styles.contentFrame}>
       <SelectionList
-         style={{gap:8,flexDirection: "row", justifyContent: "space-between"}}
           selections={[
             '5분 이하.',
             '5분 이상',
-          ]}></SelectionList>
-     <View style = {styles.selectionframe}>
-      <Pressable style = {styles.selection}></Pressable>
-      <Pressable style = {styles.selection}></Pressable>
-     </View>
+          ]}
+          onSelect = {handleRegistrationReady}
+          ></SelectionList>
       </View>
     </View>
   );

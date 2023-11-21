@@ -10,7 +10,7 @@ import Registration from "./src/screens/Registration";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import PlanCheck from "./src/screens/PlanCheck";
-import PhotoTakenSceen from "./src/screens/PhotoTakenSceen";
+import PhotoTakenScreen from "./src/screens/PhotoTakenScreen";
 
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef();
@@ -53,8 +53,8 @@ function App() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="PhotoTakenSceen"
-        component={PhotoTakenSceen}
+        name="PhotoTakenScreen"
+        component={PhotoTakenScreen}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

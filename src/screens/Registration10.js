@@ -1,8 +1,40 @@
-import * as React from 'react';
-import {StyleSheet, Image, View, Text, Pressable} from 'react-native';
+import React,{useState,useEffect,useRef} from 'react';
+import {DeviceEventEmitter,StyleSheet, Image, View, Text, Pressable,Alert} from 'react-native';
 import {Color, FontFamily} from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
+import {useNavigation} from '@react-navigation/native';
+import { AutoFocus, Camera, CameraType } from 'expo-camera';
 const Registration10 = () => {
+
+  const navigation = useNavigation();
+
+  const openCameraHandler = async () => { 
+    const { status } = await Camera.requestCameraPermissionsAsync();
+ 
+    if (status === 'granted') {
+      navigation.navigate("PhotoTakenScreen");
+    } else {
+      Alert.alert('카메라 접근 허용은 필수입니다.');
+    }
+};
+
+  async function handleRegistration () {
+    openCameraHandler();
+  }
+
+  useEffect(() => {
+    DeviceEventEmitter.emit('RegistrationReset', { data: 'Custom event data' });
+    DeviceEventEmitter.emit('RegistrationReady', { data: 'Custom event data' });
+    // 커스텀 이벤트를 처리하는 함수 등록
+    DeviceEventEmitter.addListener('RegistrationEvent', handleRegistration);
+
+    // 컴포넌트가 언마운트될 때 리스너 해제
+    return () => {
+      DeviceEventEmitter.removeAllListeners('RegistrationEvent');
+    };
+  }, []);
+
+
   return (
     <View style = {styles.view}>
       <Text style={styles.title}>{'더나은 서비스 이용을 위해서는\n사진 촬영이 필요해요'}</Text>

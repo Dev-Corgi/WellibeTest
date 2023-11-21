@@ -1,10 +1,66 @@
-import * as React from 'react';
-import {StyleSheet, Image, View, Text, Pressable} from 'react-native';
+import React,{useState,useEffect} from 'react';
+import {DeviceEventEmitter,StyleSheet, Image, View, Text, Pressable} from 'react-native';
 import {Color, FontFamily} from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
-import SelectionList from '../components/SelectionList';
 import ProgressBar from '../components/ProgressBar';
+import {useNavigation} from '@react-navigation/native';
 const Registration9 = () => {
+
+  const [loadingProgress, setloadingProgress] = useState(0)
+
+  let progressInterval = null
+
+
+  useEffect(() => {
+    progressInterval = setInterval(increaseProgress, 20);
+  }, [])
+
+  function increaseProgress() {
+    setloadingProgress((prevProgress) => {
+      const newProgress = prevProgress + 1;
+  
+      if (newProgress >= 100) {
+        clearInterval(progressInterval);
+      }
+  
+      return newProgress;
+    });
+}
+
+
+
+  const navigation = useNavigation();
+
+  function handleRegistration () {
+    navigation.navigate("Registration10");
+  }
+
+  function handleRegistrationReady () {
+    DeviceEventEmitter.emit('RegistrationReady', { data: 'Custom event data' });
+  }
+
+  useEffect(() => {
+    DeviceEventEmitter.emit('RegistrationReset', { data: 'Custom event data' });
+    // 커스텀 이벤트를 처리하는 함수 등록
+    DeviceEventEmitter.addListener('RegistrationEvent', handleRegistration);
+
+    // 컴포넌트가 언마운트될 때 리스너 해제
+    return () => {
+      DeviceEventEmitter.removeAllListeners('RegistrationEvent');
+    };
+  });
+
+  useEffect(() => {
+    if(loadingProgress >= 100){
+      // console.log(loadingProgress)
+      navigation.navigate("Registration10");
+    }
+  
+  }, [loadingProgress])
+
+  const checkActiveEmoji = require("../assets/img/Check_Active.png");
+  const checkUnActiveEmoji =require("../assets/img/Check_Unactive.png");
+
   return (
     <View style = {styles.view}>
       <Text style={styles.title}>{'목표하는 하루 트레이닝\n시간은 얼마나 될까요?'}</Text>
@@ -14,15 +70,15 @@ const Registration9 = () => {
       <Image style = {styles.planImage} source={require("../assets/img/PlanLoading.png")}></Image>
       <View style = {styles.checkFrame}>
         <View style = {styles.checkRow}>
-          <Image style = {styles.checkImg} source={require("../assets/img/Check_Active.png")}></Image>
+          <Image style = {styles.checkImg} source={loadingProgress < 30 ? checkUnActiveEmoji : checkActiveEmoji}></Image>
           <Text style = {styles.loadingText}>표정근 정보를 분석하고 있어요.</Text>
         </View>
         <View style = {styles.checkRow}>
-          <Image style = {styles.checkImg} source={require("../assets/img/Check_Unactive.png")}></Image>
+            <Image style = {styles.checkImg} source={loadingProgress < 60 ? checkUnActiveEmoji : checkActiveEmoji}></Image>
           <Text style = {styles.loadingText}>사용자 정보를 분석하고 있어요.</Text>
         </View>
       </View>
-      <ProgressBar progress={80} style={{marginTop:38.5}}></ProgressBar>
+      <ProgressBar progress={loadingProgress} style={{marginTop:38.5}}></ProgressBar>
       </View>
     </View>
   );
@@ -33,6 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: Color.white,
     width: '100%',
     height: '100%',
+    gap : 10
   },
 
   contentFrame: {

@@ -1,12 +1,39 @@
-import * as React from 'react';
+import React,{useState,useEffect,useRef} from 'react';
 import {StyleSheet, Image, View, Text, Pressable} from 'react-native';
 import {Color, FontFamily} from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
 import Button1 from '../components/Button1';
-const PhotoTakenSceen = () => {
+import { AutoFocus, Camera, CameraType } from 'expo-camera';
+
+const PhotoTakenScreen = () => {
+
+  const takePictureHandler = async () => { 
+    // cameraRef가 없으면 해당 함수가 실행되지 않게 가드
+    if (!cameraRef.current) return;
+    
+    // takePictureAsync를 통해 사진을 찍습니다.
+    // 찍은 사진은 base64 형식으로 저장합니다.
+    await cameraRef.current
+      .takePictureAsync({
+        base64: true,
+      })
+      .then((data) => {
+        setPreviewVisible(true);
+        setCapturedImage(data);
+      });
+  };
+
+  const cameraRef = useRef(null);
+
   return (
     <View style = {styles.view}>
-     {/* <Image></Image> */}
+      <Camera
+        ref={cameraRef}
+        type={CameraType.front}
+        zoom={1}
+        autoFocus={AutoFocus.on}
+        style = {styles.camera}
+      />
      <View style={styles.guideGridFrame}>
       <View style={styles.guideGrid}>
          <View style={styles.guideGridLine}></View>
@@ -28,6 +55,7 @@ const PhotoTakenSceen = () => {
      <Button1
           style={{position: 'absolute', bottom: 36}}
           Text={'촬영하기'}
+          onPress={takePictureHandler}
           ></Button1>
     </View>
   );
@@ -118,8 +146,14 @@ const styles = StyleSheet.create({
 
   img_exc:{
     
+  },
+
+  camera:{
+    position: "absolute",
+    width: "100%",
+    height: "100%"
   }
   
 });
 
-export default PhotoTakenSceen;
+export default PhotoTakenScreen;

@@ -9,8 +9,14 @@ import {
 } from "react-native";
 import { Color, FontFamily } from "../GlobalStyles";
 
-const SelectionList = ({ selections, style }) => {
+const SelectionList = ({ selections, style, onSelect }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
+
+  function handleSelect (index) {
+    setCurrentIndex(index);
+    onSelect();
+  }
+
   return (
     <View style={[styles.view, style]}>
       {selections.map((selection, index) => {
@@ -26,7 +32,7 @@ const SelectionList = ({ selections, style }) => {
                     : Color.colorWhitesmoke_100,
               },
             ]}
-            onPress={() => setCurrentIndex(index)}
+            onPress={() => handleSelect(index)}
           >
             <Text
               style={[
@@ -48,6 +54,7 @@ const styles = StyleSheet.create({
     position: "relative",
     display: "flex",
     width: 327,
+    gap: 10
   },
 
   selectionBox: {
