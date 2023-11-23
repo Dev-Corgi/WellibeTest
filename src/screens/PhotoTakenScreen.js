@@ -33,6 +33,7 @@ const PhotoTakenScreen = () => {
         zoom={0}
         autoFocus={AutoFocus.on}
         style = {styles.camera}
+        ratio='16:9'
       />
      <View style={styles.guideGridFrame}>
       <View style={styles.guideGrid}>
