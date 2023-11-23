@@ -1,5 +1,5 @@
-import React,{useState,useEffect} from 'react';
-import {DeviceEventEmitter, StyleSheet, Image, View, Text, Pressable,Modal } from 'react-native';
+import React,{useState,useEffect,useRef} from 'react';
+import {DeviceEventEmitter, StyleSheet, Image, View, Text, Pressable,Modal,PanResponder } from 'react-native';
 import { Color, FontFamily } from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
 // import DateTimePicker from '@react-native-community/datetimepicker';
@@ -7,8 +7,10 @@ import {useNavigation} from '@react-navigation/native';
 import WheelPickerExpo from 'react-native-wheel-picker-expo';
 const Registration2 = ({buttonCallBack}) => {
 
+  const touchX = useRef(0);
+
   const navigation = useNavigation();
-  const Years = '2000,2001,2002,2003,2004,2005'.split(',');
+  const Years = [2000,2001,2002,2003,2004,2005];
 
   function handleRegistration () {
     navigation.navigate("Registration3");
@@ -30,15 +32,14 @@ const Registration2 = ({buttonCallBack}) => {
   }, []);
 
   const [visible, setVisible] = useState(false); // 모달 노출 여부
-  const [date, onChangeDate] = useState(new Date()); // 선택 날짜
+  const [date, onChangeDate] = useState("2023"); // 선택 날짜
   const [isYear, setIsYear] = useState(false);
 
   const onPress = () => { // 날짜 클릭 시
     setVisible(true); // 모달 open
   };
 
-  const onConfirm = (event, date) => { // 날짜 또는 시간 선택 시
-    setVisible(false); // 모달 close
+  const onConfirm = (date) => { // 날짜 또는 시간 선택 시
     onChangeDate(date); // 선택한 날짜 변경
     setIsYear(true);
     handleRegistrationReady();
@@ -57,21 +58,26 @@ const Registration2 = ({buttonCallBack}) => {
           text={'서비스 고도화를 위해 저희만 알고 있을게요'}></RegistrationInfo>
         <View style={styles.contentFrame}>
           <Pressable style={styles.inputfieldFrame} onPress={onPress}>
-            <Text style={styles.inputfieldText}>{isYear ? date.getFullYear() : "출생연도를 선택해 주세요"}</Text>
+            <Text style={styles.inputfieldText}>{isYear ? date : "출생연도를 선택해 주세요"}</Text>
           </Pressable>
           <Text style={styles.subtext}>수정을 원하시면 탭하여 주세요.</Text>
         </View>
         { visible &&
-        <Modal style={{ backgroundColor: 'rgba(255, 255, 255, 0)'}}>
+        <Modal transparent = {true}>
         <View style = {styles.bottomWheelFrame}>
+        <View style = {{position: "relative", marginTop: -45, width: "100%", height: 171}}>
         <WheelPickerExpo
-        position = {"relative"}
           height={171}
           width={"100%"}
           initialSelectedIndex={3}
           backgroundColor='#333333'
           items={Years.map(name => ({ label: name, value: '' }))}
-          onChange={({ item }) => setIsYear(item.label)} />
+          onChange={({ item }) => {onConfirm(item.label);}}
+          />
+          </View>
+          <Pressable style = {styles.wheelButton} onPress={() => setVisible(false)}>
+            <Text style = {styles.wheelButtonText}>확인</Text>
+          </Pressable>
         </View>
         </Modal>
 }
@@ -141,7 +147,6 @@ const styles = StyleSheet.create({
   bottomWheelFrame : {
     position: "absolute",
     display: "flex",
-    alignItems: "center",
     justifyContent: "center",
     width: "100%",
     height: 260,
@@ -149,6 +154,24 @@ const styles = StyleSheet.create({
     backgroundColor: "#333333",
     borderTopRightRadius : 20,
     borderTopLeftRadius: 20
+  },
+
+  wheelButton:{
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+    height: 53,
+    backgroundColor : "rgba(0,0,0,0.2)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+
+  wheelButtonText:{
+    position: "relative",
+    fontSize: 16,
+    FontFamily: FontFamily.PretendardSemiBold,
+    color: Color.colorWhitesmoke_100
   }
 });
 

@@ -104,7 +104,7 @@ const Registration = () => {
           })}
         </Stack.Navigator>
         <Button1
-          style={{ position: "absolute", bottom: 36 }}
+          style={{ position: "absolute", bottom: 0 }}
           text={"다음"}
           onPress={() =>
             DeviceEventEmitter.emit("RegistrationEvent", {
