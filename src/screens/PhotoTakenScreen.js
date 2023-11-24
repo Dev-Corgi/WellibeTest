@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useRef} from 'react';
-import {StyleSheet, Image, View, Text, Pressable} from 'react-native';
+import {StyleSheet, Image, View, Text, Pressable,Dimensions} from 'react-native';
 import {Color, FontFamily} from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
 import Button1 from '../components/Button1';
