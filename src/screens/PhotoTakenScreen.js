@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
 
   cameraPreview:{
     position: "relative",
-    width: "178%",
+    width: "122%",
     height: "100%"
   },
 
