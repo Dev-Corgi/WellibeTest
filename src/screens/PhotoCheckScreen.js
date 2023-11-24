@@ -127,7 +127,8 @@ const styles = StyleSheet.create({
     position: "relative",
     width: 327,
     height: 409,
-    borderRadius: 10
+    borderRadius: 10,
+    transform: [{ scaleX: -1 }],
   },
 });
 

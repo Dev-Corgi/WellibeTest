@@ -35,7 +35,7 @@ function App() {
     <ImageProvider>
     <NavigationContainer ref={navigationRef}>
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      {/* <Stack.Screen
+      <Stack.Screen
         name="LogIn"
         component={Login}
         options={{ headerShown: false }}
@@ -54,7 +54,7 @@ function App() {
         name="PlanCheck"
         component={PlanCheck}
         options={{ headerShown: false }}
-      /> */}
+      />
       <Stack.Screen
         name="PhotoTakenScreen"
         component={PhotoTakenScreen}
