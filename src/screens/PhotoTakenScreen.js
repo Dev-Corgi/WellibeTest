@@ -107,7 +107,7 @@ const PhotoTakenScreen = () => {
       type={CameraType.front}
       zoom={0}
       autoFocus={AutoFocus.on}
-      style = {styles.camera}
+      style={[styles.cameraPreview, {marginTop: imagePadding, marginBottom: imagePadding}]}
       />
      <View style={styles.guideGridFrame}>
       <View style={styles.guideGrid}>
@@ -223,10 +223,8 @@ const styles = StyleSheet.create({
     
   },
 
-  camera:{
-    position: "absolute",
-    width: "100%",
-    height: "100%"
+  cameraPreview:{
+    flex: 1
   }
   
 });
