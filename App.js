@@ -11,6 +11,8 @@ import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import PlanCheck from "./src/screens/PlanCheck";
 import PhotoTakenScreen from "./src/screens/PhotoTakenScreen";
+import { ImageProvider } from './src/store/ImageContext';
+import PhotoCheckScreen from "./src/screens/PhotoCheckScreen";
 
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef();
@@ -30,9 +32,10 @@ function App() {
     return <AppLoading />;
   }
   return(
+    <ImageProvider>
     <NavigationContainer ref={navigationRef}>
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen
+      {/* <Stack.Screen
         name="LogIn"
         component={Login}
         options={{ headerShown: false }}
@@ -51,14 +54,20 @@ function App() {
         name="PlanCheck"
         component={PlanCheck}
         options={{ headerShown: false }}
-      />
+      /> */}
       <Stack.Screen
         name="PhotoTakenScreen"
         component={PhotoTakenScreen}
         options={{ headerShown: false }}
       />
+            <Stack.Screen
+        name="PhotoCheckScreen"
+        component={PhotoCheckScreen}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   </NavigationContainer>
+  </ImageProvider>
   )
 
 }

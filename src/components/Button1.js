@@ -4,7 +4,7 @@ import { Color, FontFamily } from '../GlobalStyles';
 
 const Button1 = ({text,style,onPress,isActive = true}) => {
     return (
-        <Pressable style={[styles.view,style,{backgroundColor: isActive ? Color.navy : Color.colorGray_700}]} onPress = {() => {if(isActive){onPress()}}}>
+        <Pressable style={[styles.view,style,{backgroundColor: isActive ? style.backgroundColor ? style.backgroundColor : Color.navy : Color.colorGray_700}]} onPress = {() => {if(isActive){onPress()}}}>
             <Text style={styles.text}>{text}</Text>
         </Pressable>
     );

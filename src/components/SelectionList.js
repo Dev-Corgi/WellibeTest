@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Color, FontFamily } from "../GlobalStyles";
 
-const SelectionList = ({ selections, style, onSelect }) => {
+const SelectionList = ({ selections, style, onSelect,isMulti = false, resetIndex = null }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
 
   function handleSelect (index) {

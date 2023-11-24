@@ -1,14 +1,17 @@
-import React,{useState,useEffect,useRef} from 'react';
+import React,{useState,useEffect,useRef,useContext} from 'react';
 import {StyleSheet, Image, View, Text} from 'react-native';
 import {Color, FontFamily} from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
 import Button1 from '../components/Button1';
 import { AutoFocus, Camera, CameraType } from 'expo-camera';
-
+import { ImageContext } from "../store/ImageContext";
+import { navigationRef } from '../../App';
+import {useNavigation} from '@react-navigation/native';
 const PhotoTakenScreen = () => {
 
-
+  const navigation = useNavigation();
   const cameraRef = useRef(null);
+  const { imageUri, setImageUri } = useContext(ImageContext);
 
   const takePictureHandler = async () => { 
     // cameraRef가 없으면 해당 함수가 실행되지 않게 가드
@@ -21,8 +24,9 @@ const PhotoTakenScreen = () => {
         base64: true,
       })
       .then((data) => {
-        setPreviewVisible(true);
-        setCapturedImage(data);
+        // setPreviewVisible(true);
+        setImageUri(data);
+        navigation.navigate("PhotoCheckScreen")
       });
   };
 
@@ -58,7 +62,7 @@ const PhotoTakenScreen = () => {
      <Text style = {styles.guidetext}>자연스럽게 표정을 지어주세요</Text>
      <Button1
           style={{position: 'absolute', bottom: 36}}
-          Text={'촬영하기'}
+          text={'촬영하기'}
           onPress={takePictureHandler}
           ></Button1>
     </View>
@@ -79,12 +83,13 @@ const styles = StyleSheet.create({
   header:{
     position: "relative",
     marginTop: 49,
-    height: 20,
+    // height: 20,
     width : '100%',
     display: 'flex',
     flexDirection: "row",
     justifyContent: "center",
-    alignContent: "center"
+    alignItems: "center",
+    overflow: "visible"
   },
 
    backbutton:{
