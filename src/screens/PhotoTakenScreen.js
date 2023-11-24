@@ -224,6 +224,7 @@ const styles = StyleSheet.create({
   },
 
   cameraPreview:{
+    position: "absolute",
     flex: 1
   }
   
