@@ -13,12 +13,23 @@ import ProgressBar from "../components/ProgressBar";
 import Button1 from "../components/Button1";
 import { ImageContext } from "../store/ImageContext";
 import RegistrationInfo from '../components/RegistrationInfo';
+import { AutoFocus, Camera, CameraType } from 'expo-camera';
 const PhotoCheckScreen = () => {
   const { imageUri, setImageUri } = useContext(ImageContext);
 
   const navigation = useNavigation();
 
   const [progress, setprogress] = useState(0);
+
+  const openCameraHandler = async () => { 
+    const { status } = await Camera.requestCameraPermissionsAsync();
+ 
+    if (status === 'granted') {
+      navigation.navigate("PhotoTakenScreen");
+    } else {
+      Alert.alert('카메라 접근 허용은 필수입니다.');
+    }
+};
 
   return (
     <View style={styles.view}>
@@ -45,8 +56,9 @@ const PhotoCheckScreen = () => {
         <Button1
           style={{ position: "absolute", bottom: 70, backgroundColor: "#FF705C" }}
           text={"다시 촬영할래요"}
-          onPress={() =>
-           navigation.navigate("PhotoTakenScreen")
+          onPress={() =>{
+           openCameraHandler();
+          }
           }
         ></Button1>
         <Button1

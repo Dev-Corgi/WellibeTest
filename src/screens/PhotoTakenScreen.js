@@ -30,14 +30,6 @@ const PhotoTakenScreen = () => {
       });
   };
 
-  const openCameraHandler = async () => { 
-    const { status } = await Camera.requestCameraPermissionsAsync();
-};
-
-useEffect(() => {
- openCameraHandler();
-}, [input])
-
   return (
     <View style = {styles.view}>
       <View style = {styles.cameraLayer}>
