@@ -11,10 +11,26 @@ import { Color, FontFamily } from "../GlobalStyles";
 
 const SelectionList = ({ selections, style, onSelect,isMulti = false, resetIndex = null }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
+  const [currentIndexes, setCurrentIndexes] = useState([]);
 
   function handleSelect (index) {
     setCurrentIndex(index);
-    onSelect();
+
+    if(isMulti){
+      if(index == resetIndex){
+        setCurrentIndexes([index]);
+      }
+     
+      else{
+     setCurrentIndexes((prev) =>{prev.push(index)})
+      }
+     onSelect();
+    }
+
+    else{
+     setCurrentIndexes(index);
+     onSelect();
+    }
   }
 
   return (

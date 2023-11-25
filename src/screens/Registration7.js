@@ -42,6 +42,8 @@ const Registration7 = () => {
             '해당 없음',
           ]}
           onSelect={handleRegistrationReady}
+          isMulti = {true}
+          resetIndex={4}
           ></SelectionList>
       </View>
     </View>

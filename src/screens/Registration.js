@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
 
   frame: {
     position: "relative",
-    width: 334,
+    width: 340,
     height: 751,
     display: "flex",
     flexDirection: "column",

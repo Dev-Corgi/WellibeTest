@@ -4,6 +4,7 @@ import {Color, FontFamily} from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
 import {useNavigation} from '@react-navigation/native';
 import { AutoFocus, Camera, CameraType } from 'expo-camera';
+import Button1 from '../components/Button1';
 const Registration10 = () => {
 
   const navigation = useNavigation();
@@ -57,6 +58,13 @@ const Registration10 = () => {
           </View>
         </View>
       </View>
+      <Button1
+          style={{ position: "absolute", bottom: 70, backgroundColor: "#FF705C" }}
+          text={"다음에 할게요"}
+          onPress={() =>{
+          }
+          }
+        ></Button1>
     </View>
   );
 };

@@ -13,6 +13,7 @@ import PlanCheck from "./src/screens/PlanCheck";
 import PhotoTakenScreen from "./src/screens/PhotoTakenScreen";
 import { ImageProvider } from './src/store/ImageContext';
 import PhotoCheckScreen from "./src/screens/PhotoCheckScreen";
+import PhotoReviewScreen from "./src/screens/PhotoReviewScreen";
 
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef();
@@ -63,6 +64,11 @@ function App() {
             <Stack.Screen
         name="PhotoCheckScreen"
         component={PhotoCheckScreen}
+        options={{ headerShown: false }}
+      />
+                  <Stack.Screen
+        name="PhotoReviewScreen"
+        component={PhotoReviewScreen}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

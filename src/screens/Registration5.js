@@ -42,6 +42,7 @@ const Registration5 = () => {
             '피부 처짐을 예방/개선하고 싶어요',
           ]}
           onSelect={handleRegistrationReady}
+          isMulti = {true}
           ></SelectionList>
       </View>
     </View>

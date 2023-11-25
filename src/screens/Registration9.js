@@ -53,7 +53,8 @@ const Registration9 = () => {
   useEffect(() => {
     if(loadingProgress >= 100){
       // console.log(loadingProgress)
-      navigation.navigate("Registration10");
+      // navigation.navigate("Registration10");
+      handleRegistrationReady();
     }
   
   }, [loadingProgress])
@@ -63,9 +64,9 @@ const Registration9 = () => {
 
   return (
     <View style = {styles.view}>
-      <Text style={styles.title}>{'목표하는 하루 트레이닝\n시간은 얼마나 될까요?'}</Text>
+      <Text style={styles.title}>{'맞춤 트레이닝 플랜을\n구성 중입니다'}</Text>
       <RegistrationInfo
-        text={'5분 이상을 추천드릴게요!.'}></RegistrationInfo>
+        text={'매일해야 효과가 금방 나타나요!'}></RegistrationInfo>
       <View style={styles.contentFrame}>
       <Image style = {styles.planImage} source={require("../assets/img/PlanLoading.png")}></Image>
       <View style = {styles.checkFrame}>
