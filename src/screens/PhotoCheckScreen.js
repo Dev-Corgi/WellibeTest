@@ -66,7 +66,7 @@ const PhotoCheckScreen = () => {
           text={"잘 되었어요"}
           onPress={() =>
             {
-              navigation.navigate("PhotoReviewScreen.js")
+              navigation.navigate("PhotoReviewScreen")
             }
           }
         ></Button1>

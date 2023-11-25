@@ -22,13 +22,21 @@ const SelectionList = ({ selections, style, onSelect,isMulti = false, resetIndex
       }
      
       else{
-     setCurrentIndexes((prev) =>{prev.push(index)})
+        let newArray = [...currentIndexes];
+        newArray =  newArray.filter(item => item !== resetIndex);
+        if(currentIndexes.includes(index)){
+          newArray =  newArray.filter(item => item !== index);
+        }
+        else{
+          newArray.push(index);
+        }
+     setCurrentIndexes(newArray)
       }
      onSelect();
     }
 
     else{
-     setCurrentIndexes(index);
+     setCurrentIndexes([index]);
      onSelect();
     }
   }
@@ -43,7 +51,7 @@ const SelectionList = ({ selections, style, onSelect,isMulti = false, resetIndex
               styles.selectionBox,
               {
                 backgroundColor:
-                  currentIndex == index
+                  currentIndexes.includes(index)
                     ? Color.colorKhaki
                     : Color.colorWhitesmoke_100,
               },
@@ -53,7 +61,7 @@ const SelectionList = ({ selections, style, onSelect,isMulti = false, resetIndex
             <Text
               style={[
                 styles.text,
-                { color: currentIndex == index ? Color.white : Color.black },
+                { color: currentIndexes.includes(index) ? Color.white : Color.black },
               ]}
             >
               {selection}
