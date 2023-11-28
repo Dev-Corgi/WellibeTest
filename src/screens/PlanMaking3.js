@@ -44,8 +44,6 @@ const PlanMaking3 = () => {
           onSelect={() => {
             setisButtonActive(true);
           }}
-          isMulti={true}
-          resetIndex={4}
         ></SelectionList>
       <Button1
         style={{ position: "absolute", bottom: 36 }}
