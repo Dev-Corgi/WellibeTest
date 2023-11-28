@@ -1,43 +1,55 @@
 import React, { useState, useEffect,useContext } from "react";
 import {
+  DeviceEventEmitter,
   StyleSheet,
+  Image,
   View,
+  Text,
 } from "react-native";
 import { Color, FontFamily } from "../GlobalStyles";
+import RegistrationInfo from "../components/RegistrationInfo";
 import SelectionList from "../components/SelectionList";
 import { useNavigation } from "@react-navigation/native";
 import RegistrationTooltip from '../components/RegistrationTooltip';
-import Button1 from "../components/Button1";
+import Button1 from '../components/Button1';
 import { ScreenNameContext } from "../store/ScreenNameContext";
 import { ProgressContext } from "../store/ProgressContext";
-const Registration3 = ({ buttonCallBack }) => {
+const PlanMaking1 = () => {
   const navigation = useNavigation();
 
-  const [isButtonActive, setisButtonActive] = useState(false)
+  const [isButtonActive, setisButtonActive] = useState(false);
   const { screenName, setScreenName } = useContext(ScreenNameContext);
   const { progress, setProgress } = useContext(ProgressContext);
 
   useEffect(() => {
-    setScreenName("성별 선택")
-    setProgress(75);
+    setScreenName("목적 선택")
+    setProgress(25);
     }, [])
 
   return (
     <View style={styles.view}>
       <RegistrationTooltip
-        title={"성별이\n어떻게 되시나요?"}
-        message={"서비스 고도화를 위해 저희만 알고 있을게요"}
+        title={"어떤 목적으로\n웰리비를 찾아주셨나요?"}
+        message={"적절한 트레이닝 추천에 필요해요!"}
       ></RegistrationTooltip>
-        <SelectionList style={{marginTop: 32}}
-          selections={["남성", "여성", "기타"]}
+        <SelectionList
+        style={{marginTop: 32}}
+          selections={[
+            "풍부한 표정을 만들고 싶어요",
+            "얼굴 비대칭이 고민이에요",
+            "작고 갸름한 얼굴을 만들고 싶어요",
+            "주름을 예방/개선하고 싶어요",
+            "피부 처짐을 예방/개선하고 싶어요",
+          ]}
           onSelect={() => setisButtonActive(true)}
+          isMulti={true}
         ></SelectionList>
       <Button1
         style={{ position: "absolute", bottom: 36 }}
         text={"다음"}
         onPress={() =>
           {if (isButtonActive) {
-            navigation.navigate("Registration4");
+            navigation.navigate("PlanMaking2");
           }}
         }
         isActive={isButtonActive}
@@ -68,9 +80,9 @@ const styles = StyleSheet.create({
     lineHeight: 34,
     width: "100%",
     textAlign: "left",
-    marginBottom: 20,
     marginTop: 20,
+    marginBottom: 20,
   },
 });
 
-export default Registration3;
+export default PlanMaking1;

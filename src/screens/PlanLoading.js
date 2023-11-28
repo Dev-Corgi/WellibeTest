@@ -4,12 +4,13 @@ import {Color, FontFamily} from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
 import ProgressBar from '../components/ProgressBar';
 import {useNavigation} from '@react-navigation/native';
-const Registration9 = () => {
+import RegistrationTooltip from '../components/RegistrationTooltip';
+import Button1 from '../components/Button1';
+const PlanLoading = () => {
 
   const [loadingProgress, setloadingProgress] = useState(0)
 
   let progressInterval = null
-
 
   useEffect(() => {
     progressInterval = setInterval(increaseProgress, 20);
@@ -27,34 +28,13 @@ const Registration9 = () => {
     });
 }
 
-
-
   const navigation = useNavigation();
 
-  function handleRegistration () {
-    navigation.navigate("Registration10");
-  }
-
-  function handleRegistrationReady () {
-    DeviceEventEmitter.emit('RegistrationReady', { data: 'Custom event data' });
-  }
-
-  useEffect(() => {
-    DeviceEventEmitter.emit('RegistrationReset', { data: 'Custom event data' });
-    // 커스텀 이벤트를 처리하는 함수 등록
-    DeviceEventEmitter.addListener('RegistrationEvent', handleRegistration);
-
-    // 컴포넌트가 언마운트될 때 리스너 해제
-    return () => {
-      DeviceEventEmitter.removeAllListeners('RegistrationEvent');
-    };
-  });
+  const [isButtonActive, setisButtonActive] = useState(false);
 
   useEffect(() => {
     if(loadingProgress >= 100){
-      // console.log(loadingProgress)
-      // navigation.navigate("Registration10");
-      handleRegistrationReady();
+      setisButtonActive(true);
     }
   
   }, [loadingProgress])
@@ -64,10 +44,11 @@ const Registration9 = () => {
 
   return (
     <View style = {styles.view}>
-      <Text style={styles.title}>{'맞춤 트레이닝 플랜을\n구성 중입니다'}</Text>
-      <RegistrationInfo
-        text={'매일해야 효과가 금방 나타나요!'}></RegistrationInfo>
-      <View style={styles.contentFrame}>
+      <RegistrationTooltip
+        style = {{marginTop: 90}}
+        title={"작심삼일\n벗어날 수 있도록 도와드려요"}
+        message = {"언제든 변경할 수 있어요"}
+        ></RegistrationTooltip>
       <Image style = {styles.planImage} source={require("../assets/img/PlanLoading.png")}></Image>
       <View style = {styles.checkFrame}>
         <View style = {styles.checkRow}>
@@ -80,13 +61,25 @@ const Registration9 = () => {
         </View>
       </View>
       <ProgressBar progress={loadingProgress} style={{marginTop:38.5}}></ProgressBar>
-      </View>
+      <Button1
+          style={{ position: "absolute", bottom: 36 }}
+          text={"다음"}
+          onPress={() =>
+            {if (isButtonActive) {
+              navigation.navigate("PlanCheck");
+            }}
+          }
+          isActive={isButtonActive}
+        ></Button1>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   view: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     backgroundColor: Color.white,
     width: '100%',
     height: '100%',
@@ -146,4 +139,4 @@ const styles = StyleSheet.create({
   
 });
 
-export default Registration9;
+export default PlanLoading;

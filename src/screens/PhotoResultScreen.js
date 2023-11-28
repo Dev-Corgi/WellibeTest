@@ -4,17 +4,15 @@ import { Color, FontFamily } from '../GlobalStyles';
 import Button1 from '../components/Button1';      
 import {useNavigation} from '@react-navigation/native';
 import CheckVid from "@images/vid_checkAnimation.png"
-const ResultScreen = () => {
+const PhotoResultScreen = () => {
 
   const navigation = useNavigation();
- 
-  const message = "사진과 정보가\n리포트에 저장되었어요"
 
   return (
     <View style={styles.view}>
       <Text style = {styles.message}>{"사진과 정보가\n"}<Text style = {{fontFamily: FontFamily.PretendardBold}}>{"리포트에 저장되었어요"}</Text></Text>
       <Image style = {styles.img_checkmark} source = {CheckVid}></Image>
-      <Button1 style={{position: "absolute", bottom: 36}} text = {"확인"} onPress={() => navigation.navigate("Registration")}></Button1>
+      <Button1 style={{position: "absolute", bottom: 36}} text = {"확인"} onPress={() => navigation.navigate("TimerSetScreen")}></Button1>
     </View>
   );
 };
@@ -48,4 +46,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default ResultScreen;
+export default PhotoResultScreen;

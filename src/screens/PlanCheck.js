@@ -125,7 +125,7 @@ const PlanCheck = () => {
     <Button1
           style={{position: 'absolute', bottom: 36, marginLeft: 27}}
           text={'다음'}
-          onPress={() =>navigation.navigate("PhotoTakenSceen")}
+          onPress={() =>navigation.navigate("PhotoAuth")}
          ></Button1>
     </View>
   );

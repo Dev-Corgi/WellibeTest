@@ -1,45 +1,60 @@
 import React, { useState, useEffect,useContext } from "react";
 import {
+  DeviceEventEmitter,
   StyleSheet,
+  Image,
   View,
+  Text,
 } from "react-native";
 import { Color, FontFamily } from "../GlobalStyles";
+import RegistrationInfo from "../components/RegistrationInfo";
 import SelectionList from "../components/SelectionList";
 import { useNavigation } from "@react-navigation/native";
 import RegistrationTooltip from '../components/RegistrationTooltip';
-import Button1 from "../components/Button1";
+import Button1 from '../components/Button1';
 import { ScreenNameContext } from "../store/ScreenNameContext";
 import { ProgressContext } from "../store/ProgressContext";
-const Registration3 = ({ buttonCallBack }) => {
+const PlanMaking3 = () => {
   const navigation = useNavigation();
 
-  const [isButtonActive, setisButtonActive] = useState(false)
+  const [isButtonActive, setisButtonActive] = useState(false);
   const { screenName, setScreenName } = useContext(ScreenNameContext);
   const { progress, setProgress } = useContext(ProgressContext);
 
   useEffect(() => {
-    setScreenName("성별 선택")
+    setScreenName("상태 체크")
     setProgress(75);
     }, [])
 
   return (
     <View style={styles.view}>
       <RegistrationTooltip
-        title={"성별이\n어떻게 되시나요?"}
-        message={"서비스 고도화를 위해 저희만 알고 있을게요"}
+        title={"현재 해당하는\n상태에 체크해 주세요"}
+        message={"적절한 트레이닝 구성에 도움이 되요."}
       ></RegistrationTooltip>
-        <SelectionList style={{marginTop: 32}}
-          selections={["남성", "여성", "기타"]}
-          onSelect={() => setisButtonActive(true)}
+        <SelectionList
+         style={{marginTop: 32}}
+          selections={[
+            "눈에 힘이 없거나 눈꺼풀이 쳐져 있어요.",
+            "웃을 때 소극적으로 웃어요",
+            "볼(입 옆의 피부)이 처져 있어요",
+            "입꼬리가 처져 있거나 비뚤어져 있어요",
+            "해당 없음",
+          ]}
+          onSelect={() => {
+            setisButtonActive(true);
+          }}
+          isMulti={true}
+          resetIndex={4}
         ></SelectionList>
       <Button1
         style={{ position: "absolute", bottom: 36 }}
         text={"다음"}
-        onPress={() =>
-          {if (isButtonActive) {
-            navigation.navigate("Registration4");
-          }}
-        }
+        onPress={() => {
+          if (isButtonActive) {
+            navigation.navigate("PlanMaking4");
+          }
+        }}
         isActive={isButtonActive}
       ></Button1>
     </View>
@@ -68,9 +83,9 @@ const styles = StyleSheet.create({
     lineHeight: 34,
     width: "100%",
     textAlign: "left",
-    marginBottom: 20,
     marginTop: 20,
+    marginBottom: 20,
   },
 });
 
-export default Registration3;
+export default PlanMaking3;

@@ -22,7 +22,7 @@ const Intro = () => {
         <MessageBubble message = {"회원님께 필요한 트레이닝을 추천하기 위해 몇가지 질문을 드릴게요."}></MessageBubble>
 
       </View>
-    <Button1 style={{position: "absolute", bottom: 36}} text = {"종아요"} onPress={() => navigation.navigate("Registration")}></Button1>
+    <Button1 style={{position: "absolute", bottom: 36}} text = {"종아요"} onPress={() => navigation.navigate("PlanMaking")}></Button1>
     </View>
   );
 };

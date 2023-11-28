@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
 import { FontFamily,Color } from '../GlobalStyles';
 
-const RegistrationTooltip = ({title,message}) => {
+const RegistrationTooltip = ({style,title,message}) => {
     return (
-        <View style = {styles.view}>
+        <View style = {[styles.view,style]}>
         <Text style = {styles.title}>{title}</Text>
         <View style={styles.messageFrame}>
             <Image style = {styles.coachProfile} source={require("../assets/img/coachProfile.png")}></Image>

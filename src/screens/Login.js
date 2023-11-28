@@ -25,8 +25,8 @@ const Login = () => {
             {subSloganMessage}
           </Text>
           <View style={styles.loginButtonFrame}>
-            <LoginButton backgroundColor={Color.kakaoYellow} logo={require('../assets/img/kakaologo.png')} text={"카카오 로그인"} onPress={() => navigation.navigate("Intro")}></LoginButton>
-            <LoginButton backgroundColor={Color.white} logo={require("../assets/img/googlelogo.png")} text={"구글로 로그인"} onPress={() => navigation.navigate("Intro")}></LoginButton>
+            <LoginButton backgroundColor={Color.kakaoYellow} logo={require('../assets/img/kakaologo.png')} text={"카카오 로그인"} onPress={() => navigation.navigate("Registration")}></LoginButton>
+            <LoginButton backgroundColor={Color.white} logo={require("../assets/img/googlelogo.png")} text={"구글로 로그인"} onPress={() => navigation.navigate("Registration")}></LoginButton>
           </View>
 
         </View>

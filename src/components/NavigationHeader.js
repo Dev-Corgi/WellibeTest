@@ -1,9 +1,14 @@
-import React, { useState } from "react";
-import { StyleSheet, View,Text,Image } from "react-native";
+import React, { useState,useContext } from "react";
+import { StyleSheet, View,Text,Image, Pressable } from "react-native";
 import { Color,FontFamily } from "../GlobalStyles";
 import backButton from "../assets/img/backButton_White.png";
+import backButton_Black from "../assets/img/backButton.png"
+import {useNavigation} from '@react-navigation/native';
+import { ScreenNameContext } from "../store/ScreenNameContext";
+const NavigationHeader = ({ color = Color.black, style }) => {
 
-const NavigationHeader = ({ color = Color.white, title = "헤더", style }) => {
+  const { screenName, setScreenName } = useContext(ScreenNameContext);
+  const navigation = useNavigation();
 
     const styles = StyleSheet.create({
         headerFrame: {
@@ -12,17 +17,20 @@ const NavigationHeader = ({ color = Color.white, title = "헤더", style }) => {
           alignItems: "center",
           justifyContent: "center",
           width: 326,
-        //   height: 16,
          height: 30,
-          overflow: "visible"
         },
       
-        backButton: {
+        backButtonFrame: {
           position: "absolute",
           top: 5,
           left: 0,
           width: 7.65,
           height: 14.24,
+        },
+
+        backButton:{
+           width: "100%",
+           height: "100%"
         },
       
         headerTitle: {
@@ -38,9 +46,11 @@ const NavigationHeader = ({ color = Color.white, title = "헤더", style }) => {
       {/* <View style={styles.backButton}>
         <backButton width = {7.65} height = {14.24} stroke={color}></backButton>
       </View> */}
-      <Image style={styles.backButton} source={backButton}>
+      <Pressable style = {styles.backButtonFrame} onPress={() => navigation.goBack()}>
+      <Image style={styles.backButton} source={color == Color.black ? backButton_Black : backButton}>
       </Image>
-      <Text style={styles.headerTitle}>{title}</Text>
+      </Pressable>
+      <Text style={styles.headerTitle}>{screenName}</Text>
     </View>
   );
 };

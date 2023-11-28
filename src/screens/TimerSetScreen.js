@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef,useContext } from "react";
 import {
   DeviceEventEmitter,
   StyleSheet,
@@ -9,52 +9,31 @@ import {
   Alert,
 } from "react-native";
 import { Color, FontFamily } from "../GlobalStyles";
-import RegistrationInfo from "../components/RegistrationInfo";
 import { useNavigation } from "@react-navigation/native";
-import { AutoFocus, Camera, CameraType } from "expo-camera";
 import Button1 from "../components/Button1";
 import AlarmExample from "../assets/img/AlarmExample.png";
 import WheelPickerExpo from "react-native-wheel-picker-expo";
-const Registration12 = () => {
+import RegistrationTooltip from '../components/RegistrationTooltip';
+import NavigationHeader from "../components/NavigationHeader";
+import { ScreenNameContext } from "../store/ScreenNameContext";
+const TimerSetScreen = () => {
 
   const hours= Array.from({ length: 25 }, (_, index) => 0 + index);
   const minutes= Array.from({ length: 61 }, (_, index) => 0 + index);
-
+  const { screenName, setScreenName } = useContext(ScreenNameContext);
   const navigation = useNavigation();
 
-  const openCameraHandler = async () => {
-    const { status } = await Camera.requestCameraPermissionsAsync();
-
-    if (status === "granted") {
-      navigation.navigate("PhotoTakenScreen");
-    } else {
-      Alert.alert("카메라 접근 허용은 필수입니다.");
-    }
-  };
-
-  async function handleRegistration() {
-    openCameraHandler();
-  }
-
   useEffect(() => {
-    DeviceEventEmitter.emit("RegistrationReset", { data: "Custom event data" });
-    DeviceEventEmitter.emit("RegistrationReady", { data: "Custom event data" });
-    // 커스텀 이벤트를 처리하는 함수 등록
-    DeviceEventEmitter.addListener("RegistrationEvent", handleRegistration);
-
-    // 컴포넌트가 언마운트될 때 리스너 해제
-    return () => {
-      DeviceEventEmitter.removeAllListeners("RegistrationEvent");
-    };
-  }, []);
+    setScreenName("알림 설정")
+    }, [])
 
   return (
     <View style={styles.view}>
-      <Text style={styles.title}>
-        {"작심삼일\n벗어날 수 있도록 도와드려요"}
-      </Text>
-      <RegistrationInfo text={"언제든 변경할 수 있어요"}></RegistrationInfo>
-      <View style={styles.contentFrame}>
+              <NavigationHeader style={{marginTop: 41, marginBottom:19}}></NavigationHeader>
+      <RegistrationTooltip
+        title={"작심삼일\n벗어날 수 있도록 도와드려요"}
+        message = {"언제든 변경할 수 있어요"}
+        ></RegistrationTooltip>
         <Image style={styles.alarmImage} source={AlarmExample}></Image>
         <View style={styles.wheelSectionFrame}>
           <WheelPickerExpo
@@ -83,10 +62,18 @@ const Registration12 = () => {
             }}
           />
         </View>
-      </View>
       <Button1
-        style={{ position: "absolute", bottom: 70, backgroundColor: "#FF705C" }}
+        style={{
+          position: "absolute",
+          bottom: 105,
+          backgroundColor: "#FF705C",
+        }}
         text={"다음에 할게요"}
+        onPress={() => {}}
+      ></Button1>
+      <Button1
+        style={{ position: "absolute", bottom: 36 }}
+        text={"다음"}
         onPress={() => {}}
       ></Button1>
     </View>
@@ -95,6 +82,9 @@ const Registration12 = () => {
 
 const styles = StyleSheet.create({
   view: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     backgroundColor: Color.white,
     width: "100%",
     height: "100%",
@@ -154,6 +144,7 @@ const styles = StyleSheet.create({
     position: "relative",
     width: 326,
     height: 109,
+    marginTop: 20
   },
   // 112,
   // 66
@@ -186,4 +177,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Registration12;
+export default TimerSetScreen;

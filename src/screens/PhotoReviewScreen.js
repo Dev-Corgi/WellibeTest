@@ -1,37 +1,22 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { StyleSheet, Image, View, Text } from "react-native";
 import { Color, FontFamily } from "../GlobalStyles";
-import RegistrationInfo from "../components/RegistrationInfo";
 import Button1 from "../components/Button1";
 import { AutoFocus, Camera, CameraType } from "expo-camera";
 import { ImageContext } from "../store/ImageContext";
-import { navigationRef } from "../../App";
 import { useNavigation } from "@react-navigation/native";
 import NavigationHeader from "../components/NavigationHeader";
-import ZStack from "../components/ZStack";
 import Slider from "@react-native-community/slider";
+import { ScreenNameContext } from "../store/ScreenNameContext";
 const PhotoReviewScreen = () => {
   const [sliderValue, setSliderValue] = useState(0);
-  const navigation = useNavigation();
-  const cameraRef = useRef(null);
   const { imageUri, setImageUri } = useContext(ImageContext);
+  const { screenName, setScreenName } = useContext(ScreenNameContext);
+  const navigation = useNavigation();
 
-  const takePictureHandler = async () => {
-    // cameraRef가 없으면 해당 함수가 실행되지 않게 가드
-    if (!cameraRef.current) return;
-
-    // takePictureAsync를 통해 사진을 찍습니다.
-    // 찍은 사진은 base64 형식으로 저장합니다.
-    await cameraRef.current
-      .takePictureAsync({
-        base64: true,
-      })
-      .then((data) => {
-        // setPreviewVisible(true);
-        setImageUri(data);
-        navigation.navigate("PhotoCheckScreen");
-      });
-  };
+  useEffect(() => {
+    setScreenName("사진 평가")
+    }, [])
 
   const styles = StyleSheet.create({
     view: {
@@ -241,7 +226,10 @@ const PhotoReviewScreen = () => {
       <Button1
         style={{ position: "absolute", bottom: 36 }}
         text={"다음"}
-        onPress={takePictureHandler}
+        onPress={            
+          () =>
+          navigation.navigate("PhotoResultScreen")
+        }
       ></Button1>
     </View>
   );

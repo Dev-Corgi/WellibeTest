@@ -1,49 +1,46 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useContext} from 'react';
 import {DeviceEventEmitter,StyleSheet, Image, View, Text,TextInput} from 'react-native';
 import {Color,FontFamily} from '../GlobalStyles';
-import RegistrationInfo from '../components/RegistrationInfo';
 import {useNavigation} from '@react-navigation/native';
 import RegistrationTooltip from '../components/RegistrationTooltip';
-import NavigationHeader from '../components/NavigationHeader';
+import Button1 from '../components/Button1';
+import { ScreenNameContext } from "../store/ScreenNameContext";
+import { NicknameContext } from '../store/NicknameContext';
+import { ProgressContext } from "../store/ProgressContext";
 const Registration1 = () => {
 
   const navigation = useNavigation();
 
-  const [nickName, setnickName] = useState('');
+  // const [nickName, setnickName] = useState('');
 
-  function handleRegistration () {
-    navigation.navigate("Registration2");
-  }
-
-  function handleRegistrationReady (nickName) {
-    if(nickName != ''){
-    DeviceEventEmitter.emit('RegistrationReady', { data: 'Custom event data' });
-    }
-  }
+  const [isButtonActive, setisButtonActive] = useState(false)
+  const { screenName, setScreenName } = useContext(ScreenNameContext);
+  const { nickName, setNickName } = useContext(NicknameContext);
+  const { progress, setProgress } = useContext(ProgressContext);
 
   useEffect(() => {
-    DeviceEventEmitter.emit('RegistrationReset', { data: 'Custom event data' });
-
-    DeviceEventEmitter.addListener('RegistrationEvent', handleRegistration);
-
-    return () => {
-      DeviceEventEmitter.removeListener('RegistrationEvent', handleRegistration);
-    };
-  }, []);
-
+    setScreenName("이름 선택")
+    setProgress(25);
+    }, [])
 
   return (
     <View style = {styles.view}>
         <RegistrationTooltip
-        style = {{marginTop: 20}}
         title={"웰리비에서 사용할\n닉네임을 알려주세요"}
         message = {"언제든 변경할 수 있어요"}
         ></RegistrationTooltip>
-      <View style={styles.contentFrame}>
-        <TextInput style={styles.inputfieldFrame} placeholder='이름을 입력해 주세요' onChangeText={(inputText) => setnickName(inputText)} onEndEditing={handleRegistrationReady}>
+        <TextInput style={styles.inputfieldFrame} placeholder='이름을 입력해 주세요' onChangeText={(inputText) => setNickName(inputText)} onEndEditing={() => setisButtonActive(true)}>
         </TextInput>
         <Text style={styles.subtext}>수정을 원하시면 탭하여 주세요.</Text>
-      </View>
+      <Button1
+          style={{ position: "absolute", bottom: 36 }}
+          text={"다음"}
+          onPress={() =>
+            {
+              if(isButtonActive) {navigation.navigate("Registration2")}}
+          }
+          isActive={isButtonActive}
+        ></Button1>
     </View>
   );
 };
@@ -78,6 +75,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: 327,
     height: 52,
+    marginTop: 32,
     borderRadius: 12,
     backgroundColor: Color.colorWhitesmoke_100,
     fontFamily: FontFamily.PretendardSemiBold,

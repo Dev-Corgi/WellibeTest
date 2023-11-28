@@ -1,8 +1,31 @@
-import React from 'react';
 import {StyleSheet, Image, View} from 'react-native';
 import {Color} from '../GlobalStyles';
+import React,{useState,useEffect,useContext} from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 const Loading = () => {
+  const [loadingProgress, setloadingProgress] = useState(0)
+  const navigation = useNavigation();
+
+  let progressInterval = null
+
+  useEffect(() => {
+    progressInterval = setInterval(increaseProgress, 10);
+  }, [])
+
+  function increaseProgress() {
+    setloadingProgress((prevProgress) => {
+      const newProgress = prevProgress + 1;
+  
+      if (newProgress >= 100) {
+        clearInterval(progressInterval);
+        navigation.navigate("Login");
+      }
+  
+      return newProgress;
+    });
+}
+
   return (
     <View style={styles.view}>
       <Image

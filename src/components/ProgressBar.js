@@ -4,7 +4,7 @@ import { Color } from "../GlobalStyles";
 
 const fullWidth = 326;
 
-const ProgressBar = ({ style, progress }) => {
+const ProgressBar = ({ style, progress = 0 }) => {
   return (
     <View style={[styles.progressbarOut, style]}>
       <View

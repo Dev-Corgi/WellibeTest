@@ -1,51 +1,45 @@
 import React,{useState,useEffect,useContext} from 'react';
-import {DeviceEventEmitter,StyleSheet, Image, View, Text} from 'react-native';
+import {DeviceEventEmitter,StyleSheet, Image, View, Text, Pressable} from 'react-native';
 import {Color, FontFamily} from '../GlobalStyles';
-import RegistrationInfo from '../components/RegistrationInfo';
 import SelectionList from '../components/SelectionList';
 import {useNavigation} from '@react-navigation/native';
 import RegistrationTooltip from '../components/RegistrationTooltip';
-import Button1 from "../components/Button1";
+import Button1 from '../components/Button1';
 import { ScreenNameContext } from "../store/ScreenNameContext";
 import { ProgressContext } from "../store/ProgressContext";
-const Registration4 = ({buttonCallBack}) => {
+const PlanMaking4 = () => {
 
   const navigation = useNavigation();
 
-  const [isButtonActive, setisButtonActive] = useState(false)
-
+  const [isButtonActive, setisButtonActive] = useState(false);
   const { screenName, setScreenName } = useContext(ScreenNameContext);
-
   const { progress, setProgress } = useContext(ProgressContext);
 
   useEffect(() => {
-    setScreenName("직업 선택")
+    setScreenName("세부 설정")
     setProgress(100);
     }, [])
 
   return (
     <View style = {styles.view}>
-              <RegistrationTooltip
-        title={"현재 어떠한\n일을 하고 계신가요?"}
-        message={"서비스 고도화를 위해 저희만 알고 있을게요"}
+      <RegistrationTooltip
+        title={"목표하는 하루 트레이닝\n시간은 얼마나 될까요?"}
+        message={"5분 이상을 추천드릴게요!"}
       ></RegistrationTooltip>
-        <SelectionList
-        style={{marginTop : 32}}
+      <SelectionList
+       style={{marginTop: 32}}
           selections={[
-            '학생',
-            '취업 준비생',
-            '직장인',
-            '주부',
-            '기타',
+            '5분 이하.',
+            '5분 이상',
           ]}
-          onSelect={() => setisButtonActive(true)}
+          onSelect = {() => setisButtonActive(true)}
           ></SelectionList>
       <Button1
           style={{ position: "absolute", bottom: 36 }}
           text={"다음"}
           onPress={() =>
             {if (isButtonActive) {
-              navigation.navigate("RegistrationDone");
+              navigation.navigate("PlanLoading");
             }}
           }
           isActive={isButtonActive}
@@ -81,4 +75,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Registration4;
+export default PlanMaking4;

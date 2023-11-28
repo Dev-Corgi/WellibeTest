@@ -2,30 +2,38 @@ import React, { useState, useEffect,useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack"; // Stack 네비게이션
 import {
+  DeviceEventEmitter,
   StyleSheet,
+  Image,
   View,
+  Text,
+  Easing,
 } from "react-native";
 import { Color, FontFamily } from "../GlobalStyles";
 import ProgressBar from "../components/ProgressBar";
 import NavigationHeader from "../components/NavigationHeader";
 
-import Registration1 from "./Registration1";
-import Registration2 from "./Registration2";
-import Registration3 from "./Registration3";
-import Registration4 from "./Registration4";
+import PlanMaking1 from "./PlanMaking1";
+import PlanMaking2 from "./PlanMaking2";
+import PlanMaking3 from "./PlanMaking3";
+import PlanMaking4 from "./PlanMaking4";
 
 import { ProgressContext } from "../store/ProgressContext";
 
-const Registration = () => {
+
+const PlanMaking = () => {
   const Stack = createNativeStackNavigator();
   const { progress, setProgress } = useContext(ProgressContext);
 
+
+
   const screenList = [
-    { name: "Registration1", screen: Registration1 },
-    { name: "Registration2", screen: Registration2 },
-    { name: "Registration3", screen: Registration3 },
-    { name: "Registration4", screen: Registration4 },
+    { name: "PlanMaking1", screen: PlanMaking1 },
+    { name: "PlanMaking2", screen: PlanMaking2 },
+    { name: "PlanMaking3", screen: PlanMaking3 },
+    { name: "PlanMaking4", screen: PlanMaking4 },
   ];
+
 
   return (
     <View style={styles.view}>
@@ -61,11 +69,11 @@ const styles = StyleSheet.create({
 
   frame: {
     position: "relative",
-    marginTop : 20,
     width: 340,
     height: 681,
     display: "flex",
     flexDirection: "column",
+    marginTop : 20,
     zIndex: 1,
   },
 
@@ -94,4 +102,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Registration;
+export default PlanMaking;
