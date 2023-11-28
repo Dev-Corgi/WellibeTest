@@ -14,6 +14,7 @@ import PhotoTakenScreen from "./src/screens/PhotoTakenScreen";
 import { ImageProvider } from './src/store/ImageContext';
 import PhotoCheckScreen from "./src/screens/PhotoCheckScreen";
 import PhotoReviewScreen from "./src/screens/PhotoReviewScreen";
+import ResultScreen from "./src/screens/ResultScreen";
 
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef();
@@ -36,7 +37,7 @@ function App() {
     <ImageProvider>
     <NavigationContainer ref={navigationRef}>
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen
+      {/* <Stack.Screen
         name="LogIn"
         component={Login}
         options={{ headerShown: false }}
@@ -45,13 +46,13 @@ function App() {
         name="Intro"
         component={Intro}
         options={{ headerShown: false }}
-      />
+      /> */}
       <Stack.Screen
         name="Registration"
         component={Registration}
         options={{ headerShown: false }}
       />
-            <Stack.Screen
+            {/* <Stack.Screen
         name="PlanCheck"
         component={PlanCheck}
         options={{ headerShown: false }}
@@ -71,6 +72,11 @@ function App() {
         component={PhotoReviewScreen}
         options={{ headerShown: false }}
       />
+                        <Stack.Screen
+        name="ResultScreen"
+        component={ResultScreen}
+        options={{ headerShown: false }}
+      /> */}
     </Stack.Navigator>
   </NavigationContainer>
   </ImageProvider>

@@ -10,7 +10,12 @@ const Registration2 = ({buttonCallBack}) => {
   const touchX = useRef(0);
 
   const navigation = useNavigation();
-  const Years = [2000,2001,2002,2003,2004,2005];
+
+  const startYear = 1923;
+  const endYear = 2023;
+
+const Years = Array.from({ length: endYear - startYear + 1 }, (_, index) => startYear + index);
+  
 
   function handleRegistration () {
     navigation.navigate("Registration3");
@@ -69,10 +74,11 @@ const Registration2 = ({buttonCallBack}) => {
         <WheelPickerExpo
           height={171}
           width={"100%"}
-          initialSelectedIndex={3}
+          initialSelectedIndex={100}
           backgroundColor='#333333'
           items={Years.map(name => ({ label: name, value: '' }))}
           onChange={({ item }) => {onConfirm(item.label);}}
+            renderItem={(props) => {return <Text style={styles.wheelitem}>{props.label}</Text>}}
           />
           </View>
           <Pressable style = {styles.wheelButton} onPress={() => setVisible(false)}>
@@ -172,6 +178,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     FontFamily: FontFamily.PretendardSemiBold,
     color: Color.colorWhitesmoke_100
+  },
+
+  wheelitem:{
+    fontSize: 19,
+    fontFamily: FontFamily.PretendardLight,
+    color: Color.white,
   }
 });
 

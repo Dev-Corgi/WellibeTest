@@ -23,6 +23,7 @@ import Registration7 from "./Registration7";
 import Registration8 from "./Registration8";
 import Registration9 from "./Registration9";
 import Registration10 from "./Registration10";
+import Registration12 from "./Regustration12";
 
 const Registration = () => {
   const Stack = createNativeStackNavigator();
@@ -54,16 +55,17 @@ const Registration = () => {
   }, []);
 
   const screenList = [
-    { name: "Registration1", screen: Registration1 },
-    { name: "Registration2", screen: Registration2 },
-    { name: "Registration3", screen: Registration3 },
-    { name: "Registration4", screen: Registration4 },
-    { name: "Registration5", screen: Registration5 },
-    { name: "Registration6", screen: Registration6 },
-    { name: "Registration7", screen: Registration7 },
-    { name: "Registration8", screen: Registration8 },
-    { name: "Registration9", screen: Registration9 },
-    { name: "Registration10", screen: Registration10 },
+    // { name: "Registration1", screen: Registration1 },
+    // { name: "Registration2", screen: Registration2 },
+    // { name: "Registration3", screen: Registration3 },
+    // { name: "Registration4", screen: Registration4 },
+    // { name: "Registration5", screen: Registration5 },
+    // { name: "Registration6", screen: Registration6 },
+    // { name: "Registration7", screen: Registration7 },
+    // { name: "Registration8", screen: Registration8 },
+    // { name: "Registration9", screen: Registration9 },
+    // { name: "Registration10", screen: Registration10 },
+    { name: "Registration12", screen: Registration12 },
   ];
 
   const onPressHandler = () => {
