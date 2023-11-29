@@ -42,7 +42,6 @@ const PlanMaking1 = () => {
             "피부 처짐을 예방/개선하고 싶어요",
           ]}
           onSelect={() => setisButtonActive(true)}
-          isMulti={true}
         ></SelectionList>
       <Button1
         style={{ position: "absolute", bottom: 36 }}

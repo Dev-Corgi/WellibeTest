@@ -74,7 +74,7 @@ const TimerSetScreen = () => {
       <Button1
         style={{ position: "absolute", bottom: 36 }}
         text={"다음"}
-        onPress={() => {}}
+        onPress={() => {navigation.navigate("HomeScreen")}}
       ></Button1>
     </View>
   );
