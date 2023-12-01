@@ -25,6 +25,7 @@ import PhotoReviewScreen from "./src/screens/PhotoReviewScreen";
 import PhotoResultScreen from "./src/screens/PhotoResultScreen";
 import TimerSetScreen from "./src/screens/TimerSetScreen";
 import HomeScreen from "./src/screens/HomeScreen";
+import DailyTrainingReport from "./src/screens/DailyTrainingReport";
 
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef();

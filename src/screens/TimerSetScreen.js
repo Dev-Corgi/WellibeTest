@@ -156,15 +156,13 @@ const styles = StyleSheet.create({
     marginTop: 39,
     width: 290,
     height: 176,
-    overflow: "hidden"
+    overflow: "hidden",
   },
 
   middle: {
     position: "relative",
     width: 66,
-    height: "100%",
     textAlign: "center",
-    textAlignVertical: "center",
     fontFamily: FontFamily.PretendardBold,
     fontSize: 40,
     color: Color.black,
