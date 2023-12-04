@@ -12,9 +12,9 @@ import { Color, FontFamily } from "../GlobalStyles";
 import { useNavigation } from "@react-navigation/native";
 import Button1 from "../components/Button1";
 import AlarmExample from "../assets/img/AlarmExample.png";
-import WheelPickerExpo from "react-native-wheel-picker-expo";
 import RegistrationTooltip from '../components/RegistrationTooltip';
 import NavigationHeader from "../components/NavigationHeader";
+import AlarmTimer from "../components/AlarmTimer";
 import { ScreenNameContext } from "../store/ScreenNameContext";
 const TimerSetScreen = () => {
 
@@ -35,33 +35,7 @@ const TimerSetScreen = () => {
         message = {"언제든 변경할 수 있어요"}
         ></RegistrationTooltip>
         <Image style={styles.alarmImage} source={AlarmExample}></Image>
-        <View style={styles.wheelSectionFrame}>
-          <WheelPickerExpo
-            height={350}
-            width={112}
-            initialSelectedIndex={12}
-            items={hours.map((name) => ({ label: name, value: "" }))}
-            onChange={({ item }) => {
-              // onConfirm(item.label);
-            }}
-            renderItem={(props) => {
-              return <Text style={styles.wheelLabel}>{props.label}</Text>;
-            }}
-          />
-          <Text style = {styles.middle}>:</Text>
-          <WheelPickerExpo
-            height={350}
-            width={112}
-            initialSelectedIndex={30}
-            items={minutes.map((name) => ({ label: name, value: "" }))}
-            onChange={({ item }) => {
-              // onConfirm(item.label);
-            }}
-            renderItem={(props) => {
-              return <Text style={styles.wheelLabel}>{props.label}</Text>;
-            }}
-          />
-        </View>
+     <AlarmTimer style={{marginTop: 39}}></AlarmTimer>
       <Button1
         style={{
           position: "absolute",
@@ -85,7 +59,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     width: "100%",
     height: "100%",
   },
@@ -101,7 +75,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: FontFamily.PretendardBold,
     fontSize: 22,
-    color: Color.black,
+    color: Color.black(1),
     lineHeight: 34,
     width: "100%",
     textAlign: "left",
@@ -136,7 +110,7 @@ const styles = StyleSheet.create({
   guideText: {
     fontFamily: "PretendardRegular",
     fontSize: 14,
-    color: Color.navy,
+    color: Color.navy(1),
     opacity: 0.6,
   },
 
@@ -165,13 +139,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: FontFamily.PretendardBold,
     fontSize: 40,
-    color: Color.black,
+    color: Color.black(1),
   },
 
   wheelLabel:{
     fontFamily: FontFamily.PretendardBold,
     fontSize: 40,
-    color: Color.black,
+    color: Color.black(1),
   }
 });
 

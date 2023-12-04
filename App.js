@@ -14,6 +14,7 @@ import AppLoading from "expo-app-loading";
 import PlanLoading from "./src/screens/PlanLoading";
 import PlanMaking from "./src/screens/PlanMaking";
 import PlanCheck from "./src/screens/PlanCheck";
+import { StarterProvider } from "./src/store/StarterContext";
 import { ImageProvider } from "./src/store/ImageContext";
 import { ScreenNameProvider } from "./src/store/ScreenNameContext";
 import { NicknameProvider } from "./src/store/NicknameContext";
@@ -26,7 +27,14 @@ import PhotoResultScreen from "./src/screens/PhotoResultScreen";
 import TimerSetScreen from "./src/screens/TimerSetScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import DailyTrainingReport from "./src/screens/DailyTrainingReport";
-
+import TodayTraining from "./src/screens/TodayTraining";
+import ReportScreen from "./src/screens/ReportScreen";
+import { AlertDialogDemo } from "./src/components/AlartDialog";
+import PlanChangingScreen from "./src/screens/PlanChangingScreen";
+import PlanStartingScreen from "./src/screens/PlanStartingScreen";
+// import "./node_modules/@tamagui/core/reset.css"
+import { TamaguiProvider, PortalProvider } from "tamagui";
+import config from "./tamagui.config";
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef();
 
@@ -44,13 +52,16 @@ function App() {
     return <AppLoading />;
   }
   return (
-    <ImageProvider>
-      <NicknameProvider>
-        <ScreenNameProvider>
-          <ProgressProvider>
-            <NavigationContainer ref={navigationRef}>
-              <Stack.Navigator screenOptions={{ headerShown: false }}>
-                <Stack.Screen
+    <TamaguiProvider config={config}>
+      <PortalProvider>
+        <StarterProvider>
+          <ImageProvider>
+            <NicknameProvider>
+              <ScreenNameProvider>
+                <ProgressProvider>
+                  <NavigationContainer ref={navigationRef}>
+                    <Stack.Navigator screenOptions={{ headerShown: false }}>
+                      <Stack.Screen
                   name="Loading"
                   component={Loading}
                   options={{ headerShown: false }}
@@ -120,17 +131,45 @@ function App() {
                   component={TimerSetScreen}
                   options={{ headerShown: false }}
                 />
-                <Stack.Screen
-                  name="HomeScreen"
-                  component={HomeScreen}
-                  options={{ headerShown: false }}
-                />
-              </Stack.Navigator>
-            </NavigationContainer>
-          </ProgressProvider>
-        </ScreenNameProvider>
-      </NicknameProvider>
-    </ImageProvider>
+                      <Stack.Screen
+                        name="HomeScreen"
+                        component={HomeScreen}
+                        options={{ headerShown: false }}
+                      />
+                      <Stack.Screen
+                        name="TodayTraining"
+                        component={TodayTraining}
+                        options={{ headerShown: false }}
+                      />
+                      <Stack.Screen
+                        name="DailyTrainingReport"
+                        component={DailyTrainingReport}
+                        options={{ headerShown: false }}
+                      />
+                      <Stack.Screen
+                        name="ReportScreen"
+                        component={ReportScreen}
+                        options={{ headerShown: false }}
+                      />
+                      <Stack.Screen
+                        name="PlanChangingScreen"
+                        component={PlanChangingScreen}
+                        options={{ headerShown: false }}
+                      />
+                      <Stack.Screen
+                        name="PlanStartingScreen"
+                        component={PlanStartingScreen}
+                        options={{ headerShown: false }}
+                      />
+                    </Stack.Navigator>
+                  </NavigationContainer>
+                </ProgressProvider>
+              </ScreenNameProvider>
+            </NicknameProvider>
+          </ImageProvider>
+        </StarterProvider>
+      </PortalProvider>
+    </TamaguiProvider>
   );
 }
 

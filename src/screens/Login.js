@@ -25,8 +25,8 @@ const Login = () => {
             {subSloganMessage}
           </Text>
           <View style={styles.loginButtonFrame}>
-            <LoginButton backgroundColor={Color.kakaoYellow} logo={require('../assets/img/kakaologo.png')} text={"카카오 로그인"} onPress={() => navigation.navigate("Registration")}></LoginButton>
-            <LoginButton backgroundColor={Color.white} logo={require("../assets/img/googlelogo.png")} text={"구글로 로그인"} onPress={() => navigation.navigate("Registration")}></LoginButton>
+            <LoginButton backgroundColor={Color.kakaoYellow(1)} logo={require('../assets/img/kakaologo.png')} text={"카카오 로그인"} onPress={() => navigation.navigate("Registration")}></LoginButton>
+            <LoginButton backgroundColor={Color.white(1)} logo={require("../assets/img/googlelogo.png")} text={"구글로 로그인"} onPress={() => navigation.navigate("Registration")}></LoginButton>
           </View>
 
         </View>
@@ -36,7 +36,7 @@ const Login = () => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     flex: 1,
     display: 'flex',
     width: '100%',
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     marginTop: 415,
     marginLeft:9.5,
     fontSize: 30,
-    color : Color.white,
+    color : Color.white(1),
     fontFamily : FontFamily.PretendardBold
   },
 
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     marginTop: 24,
     marginLeft:9.5,
     fontSize: 18,
-    color : Color.white,
+    color : Color.white(1),
     fontFamily : FontFamily.PretendardRegular
   },
 

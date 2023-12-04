@@ -1,20 +1,24 @@
 import React, { useState } from "react";
-import { StyleSheet, View,Image,Text } from "react-native";
+import { StyleSheet, View,Image,Text, Pressable } from "react-native";
 import { Color, FontFamily } from "../GlobalStyles";
 import Ic_Check from "../assets/img/Ic_Check.png";
 import Ic_Reload from "../assets/img/Ic_Reload.png";
 import Ic_Gear2 from "../assets/img/Ic_Gear2.png";
-const fullWidth = 326;
+import { useNavigation } from "@react-navigation/native";
 
 const PlanComponent = ({ isActive, category, title, season, startDuration, endDuration,backgroundImg}) => {
-  return (
+  
+  const navigation = useNavigation();
+    return (
     <View style={styles.view}>
         <Image style = {styles.backgroundImg} source = {backgroundImg}></Image>
         <View style = {styles.planStateFrame}>
             <Image style = {styles.checkIcon} source = {isActive ? Ic_Check : Ic_Reload}></Image>
             <Text style = {styles.planText}>{isActive ? "현재 플랜" : "플랜 변경"}</Text>
         </View>
+        <Pressable onPress={() =>navigation.navigate("PlanChangingScreen")}>
         <Image style = {styles.settingIcon} source = {Ic_Gear2}></Image>
+        </Pressable>
         <Text style = {styles.text1}>{category}</Text>
         <Text style = {styles.text2}>{title}</Text>
         <View style = {styles.bottomFrame}>
@@ -53,7 +57,7 @@ const styles = StyleSheet.create({
       width: 72,
       height: 23,
       borderRadius: 6,
-      backgroundColor: Color.colorKhaki
+      backgroundColor: Color.primary_700(1)
     },
 
     checkIcon:{
@@ -66,7 +70,7 @@ const styles = StyleSheet.create({
         position: "relative",
        fontSize: 12,
        fontFamily: FontFamily.PretendardSemiBold,
-       color: Color.white
+       color: Color.white(1)
     },
 
     settingIcon:{
@@ -83,7 +87,7 @@ const styles = StyleSheet.create({
         top: 174,
        fontSize: 14,
        fontFamily: FontFamily.PretendardRegular,
-       color: Color.white
+       color: Color.white(1)
     },
 
     text2:{
@@ -92,7 +96,7 @@ const styles = StyleSheet.create({
         top: 195,
        fontSize: 20,
        fontFamily: FontFamily.PretendardBold,
-       color: Color.white
+       color: Color.white(1)
     },
 
     bottomFrame:{
@@ -104,7 +108,7 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 33,
         bottom: 0,
-        backgroundColor: "rgba(0,0,0,0.2)"
+        backgroundColor: Color.black(0.2)
     },
 
     bottomTextFrame:{
@@ -119,14 +123,14 @@ const styles = StyleSheet.create({
         position: "relative",
        fontSize: 12,
        fontFamily: FontFamily.PretendardBold,
-       color: Color.white
+       color: Color.white(1)
     },
 
     durationText:{
         position: "relative",
        fontSize: 12,
        fontFamily: FontFamily.PretendardRegular,
-       color: Color.white
+       color: Color.white(1)
     }
 });
 

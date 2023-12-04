@@ -31,7 +31,7 @@ const RegistrationFrame = () => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     display: 'flex',
     width: '100%',
     height: '100%',
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     position: "relative",
     fontFamily: FontFamily.PretendardSemiBold,
     fontSize: 20,
-    color: Color.black
+    color: Color.black(1)
   },
 
   progressbarOut: {
@@ -77,14 +77,14 @@ const styles = StyleSheet.create({
     height: 3,
     marginTop: 12,
     borderRadius: 500,
-    backgroundColor: Color.colorWhitesmoke_100
+    backgroundColor: Color.gray_200(1)
   },
 
   progressbarIn: {
     width: 76,
     height: 3,
     borderRadius: 500,
-    backgroundColor: Color.colorKhaki
+    backgroundColor: Color.primary_700(1)
   },
 
   contentFrame: {
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: FontFamily.PretendardBold,
     fontSize: 22,
-    color: Color.black,
+    color: Color.black(1),
     lineHeight: 34,
     width: "100%",
     textAlign : "left",
@@ -115,19 +115,19 @@ const styles = StyleSheet.create({
     width: 327,
     height: 52,
     borderRadius: 12,
-    backgroundColor: Color.colorWhitesmoke_100,
+    backgroundColor: Color.gray_200(1),
     marginTop : 27
   },
 
   inputfieldText: {
     fontFamily: FontFamily.PretendardSemiBold,
     fontSize: 18,
-    color: Color.black
+    color: Color.black(1)
   },
 
   subtext: {
     fontFamily: FontFamily.PretendardLight,
-    color: Color.grey,
+    color: Color.gray_500(1),
     width: "100%",
     fontSize: 12,
     marginTop: 14,

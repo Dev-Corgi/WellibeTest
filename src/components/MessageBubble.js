@@ -22,14 +22,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 12,
     borderRadius: 10,
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
   },
 
   text: {
     fontSize: 14,
     fontFamily: FontFamily.PretendardRegular,
     lineHeight: 18,
-    color: Color.black,
+    color: Color.black(1),
   },
 });
 

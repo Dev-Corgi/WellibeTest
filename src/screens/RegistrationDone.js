@@ -38,7 +38,7 @@ const RegistrationDone = () => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     flex: 1,
     display: 'flex',
     flexDirection: "column",
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     fontFamily: FontFamily.PretendardRegular,
     fontSize: 14,
-    color: Color.navy,
+    color: Color.navy(1),
     opacity: 0.6,
     marginTop: 362
   },
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     fontFamily: FontFamily.PretendardBold,
     fontSize: 26,
-    color: Color.colorKhaki,
+    color: Color.primary_700(1),
     marginTop: 21
   },
 });

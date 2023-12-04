@@ -2,10 +2,20 @@ import {StyleSheet, Image, View} from 'react-native';
 import {Color} from '../GlobalStyles';
 import React,{useState,useEffect,useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import { StarterContext } from '../store/StarterContext';
+
 
 const Loading = () => {
   const [loadingProgress, setloadingProgress] = useState(0)
   const navigation = useNavigation();
+
+    //나중에 없앨것
+    const {isStarter,setIsStarter} = useContext(StarterContext)
+
+    useEffect(() => {
+    setIsStarter(true);
+    }, [])
+    //나중에 없앨것
 
   let progressInterval = null
 
@@ -37,7 +47,7 @@ const Loading = () => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     flex: 1,
     display: 'flex',
     width: '100%',

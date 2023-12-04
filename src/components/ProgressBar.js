@@ -19,13 +19,13 @@ const styles = StyleSheet.create({
     width: fullWidth,
     height: 3,
     borderRadius: 500,
-    backgroundColor: Color.colorWhitesmoke_100,
+    backgroundColor: Color.gray_200(1),
   },
 
   progressbarIn: {
     height: 3,
     borderRadius: 500,
-    backgroundColor: Color.colorKhaki,
+    backgroundColor: Color.primary_700(1),
   },
 });
 

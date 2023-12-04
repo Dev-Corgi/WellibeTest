@@ -51,7 +51,7 @@ const Registration = () => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     display: "flex",
     width: "100%",
     height: "100%",
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     position: "relative",
     fontFamily: FontFamily.PretendardSemiBold,
     fontSize: 20,
-    color: Color.black,
+    color: Color.black(1),
   },
 });
 

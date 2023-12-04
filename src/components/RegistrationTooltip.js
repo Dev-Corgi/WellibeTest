@@ -32,13 +32,13 @@ const styles = StyleSheet.create({
         width : 330,
         height: 52,
         marginTop : 26,
-        backgroundColor : Color.colorWhitesmoke_100
+        backgroundColor : Color.gray_100(1)
     },
 
     title: {
         fontFamily: FontFamily.PretendardBold,
         fontSize: 22,
-        color: Color.black,
+        color: Color.black(1),
         lineHeight: 34,
         width: '100%',
         textAlign: 'left',

@@ -20,7 +20,7 @@ const PhotoReviewScreen = () => {
 
   const styles = StyleSheet.create({
     view: {
-      backgroundColor: Color.black,
+      backgroundColor: Color.black(1),
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -48,7 +48,7 @@ const PhotoReviewScreen = () => {
 
     sliderFrame: {
       position: "absolute",
-      backgroundColor: "rgba(0,0,0,0.2)",
+      backgroundColor: Color.black(0.2),
       width: 327,
       // height: 52,
       transform: [{ scaleY: 26 }],
@@ -57,7 +57,7 @@ const PhotoReviewScreen = () => {
     sliderBackground: {
       position: "absolute",
       left: 0,
-      backgroundColor: "rgba(0,0,0,0.2)",
+      backgroundColor: Color.black(0.2),
       width: 327,
       height: 52,
     },
@@ -67,12 +67,12 @@ const PhotoReviewScreen = () => {
       left: 0,
       width: sliderValue+"%",
       height: "100%",
-      backgroundColor: Color.colorKhaki,
+      backgroundColor: Color.primary_700(1),
     },
 
     sliderValueText: {
       fontFamily: FontFamily.PretendardSemiBold,
-      color: Color.white,
+      color: Color.white(1),
       fontSize: 18,
     },
 
@@ -99,7 +99,7 @@ const PhotoReviewScreen = () => {
       position: "relative",
       fontFamily: "PretendardSemiBold",
       fontSize: 20,
-      color: Color.white,
+      color: Color.white(1),
     },
 
     guidetext: {
@@ -107,7 +107,7 @@ const PhotoReviewScreen = () => {
       marginTop: 52,
       fontFamily: "PretendardBold",
       fontSize: 22,
-      color: Color.white,
+      color: Color.white(1),
     },
 
     guideSquareLayer: {
@@ -145,7 +145,7 @@ const PhotoReviewScreen = () => {
     guideGridLine: {
       height: "100%",
       width: 1.5,
-      backgroundColor: Color.white,
+      backgroundColor: Color.white(1),
       opacity: 0.1,
     },
 
@@ -192,7 +192,7 @@ const PhotoReviewScreen = () => {
       <View style={styles.contentLayer}>
         <NavigationHeader
           style={{ marginTop: 35 }}
-          color={Color.white}
+          color={Color.white(1)}
           title="사진 촬영"
         ></NavigationHeader>
         <Text style={styles.guidetext}>현재 만족도는 어떻게 되나요?</Text>
@@ -203,9 +203,9 @@ const PhotoReviewScreen = () => {
             onValueChange={(e) => setSliderValue(e)}
             minimumValue={0}
             maximumValue={100}
-            minimumTrackTintColor="rgba(0,0,0,0)"
-            maximumTrackTintColor="rgba(0,0,0,0)"
-            thumbTintColor="rgba(0,0,0,0)"
+            minimumTrackTintColor= {Color.black(0)}
+            maximumTrackTintColor= {Color.black(0)}
+            thumbTintColor= {Color.black(0)}
             step={1}
           ></Slider>
           <View style={styles.sliderBackground} pointerEvents="box-none"></View>
@@ -217,7 +217,7 @@ const PhotoReviewScreen = () => {
             marginTop: 14,
             fontFamily: FontFamily.PretendardMedium,
             fontSize: 14,
-            color: Color.white,
+            color: Color.white(1),
           }}
         >
           드래그하여 퍼센트로 나타내주세요

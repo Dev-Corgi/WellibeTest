@@ -1,13 +1,17 @@
-import React from 'react';
+import React,{useContext,useEffect} from 'react';
 import { StyleSheet, Image, View,Text } from 'react-native';
 import { Color, FontFamily } from '../GlobalStyles';
 import { LinearGradient } from 'expo-linear-gradient';
 import Button1 from '../components/Button1';      
 import {useNavigation} from '@react-navigation/native';
 import MessageBubble from '../components/MessageBubble';
+
 const Intro = () => {
 
   const navigation = useNavigation();
+
+
+
 
   return (
     <View style={styles.view}>
@@ -29,7 +33,7 @@ const Intro = () => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     display: 'flex',
     width: '100%',
     height: '100%',

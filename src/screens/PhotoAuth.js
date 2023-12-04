@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     width: "100%",
     height: "100%",
   },
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: FontFamily.PretendardBold,
     fontSize: 22,
-    color: Color.black,
+    color: Color.black(1),
     lineHeight: 34,
     width: "100%",
     textAlign: "left",
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   guideText: {
     fontFamily: "PretendardRegular",
     fontSize: 14,
-    color: Color.navy,
+    color: Color.navy(1),
     opacity: 0.6,
   },
 });

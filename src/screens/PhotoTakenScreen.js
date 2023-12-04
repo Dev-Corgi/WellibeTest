@@ -71,7 +71,7 @@ const PhotoTakenScreen = () => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: Color.black,
+    backgroundColor: Color.black(1),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     position: "relative",
     fontFamily: "PretendardSemiBold",
     fontSize: 20,
-    color: Color.white
+    color: Color.white(1)
    },
 
   guidetext:{
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     marginTop: 52,
     fontFamily: "PretendardBold",
     fontSize: 22,
-    color: Color.white
+    color: Color.white(1)
   },
 
   guideSquareLayer:{
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   guideGridLine:{
     height: "100%",
     width: 1.5,
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     opacity: 0.1
   },
 

@@ -113,7 +113,7 @@ const Registration2 = ({ buttonCallBack }) => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     width: "100%",
     height: "100%",
   },
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: FontFamily.PretendardBold,
     fontSize: 22,
-    color: Color.black,
+    color: Color.black(1),
     lineHeight: 34,
     width: "100%",
     textAlign: "left",
@@ -146,18 +146,18 @@ const styles = StyleSheet.create({
     height: 52,
     borderRadius: 12,
     marginTop: 32,
-    backgroundColor: Color.colorWhitesmoke_100,
+    backgroundColor: Color.gray_100(1),
   },
 
   inputfieldText: {
     fontFamily: FontFamily.PretendardSemiBold,
     fontSize: 18,
-    color: Color.black,
+    color: Color.black(1),
   },
 
   subtext: {
     fontFamily: FontFamily.PretendardLight,
-    color: Color.grey,
+    color: Color.gray_600(1),
     width: "100%",
     fontSize: 12,
     marginTop: 14,
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: "100%",
     height: 70,
-    backgroundColor: "rgba(0,0,0,0.2)",
+    backgroundColor: Color.black(0.2),
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -191,13 +191,13 @@ const styles = StyleSheet.create({
     position: "relative",
     fontSize: 16,
     FontFamily: FontFamily.PretendardSemiBold,
-    color: Color.colorWhitesmoke_100,
+    color: Color.gray_100(1),
   },
 
   wheelitem: {
     fontSize: 19,
     fontFamily: FontFamily.PretendardLight,
-    color: Color.white,
+    color: Color.white(1),
   },
 });
 

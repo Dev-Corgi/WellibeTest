@@ -5,7 +5,7 @@ import backButton from "../assets/img/backButton_White.png";
 import backButton_Black from "../assets/img/backButton.png"
 import {useNavigation} from '@react-navigation/native';
 import { ScreenNameContext } from "../store/ScreenNameContext";
-const NavigationHeader = ({ color = Color.black, style }) => {
+const NavigationHeader = ({ color = Color.black(1), style }) => {
 
   const { screenName, setScreenName } = useContext(ScreenNameContext);
   const navigation = useNavigation();
@@ -47,7 +47,7 @@ const NavigationHeader = ({ color = Color.black, style }) => {
         <backButton width = {7.65} height = {14.24} stroke={color}></backButton>
       </View> */}
       <Pressable style = {styles.backButtonFrame} onPress={() => navigation.goBack()}>
-      <Image style={styles.backButton} source={color == Color.black ? backButton_Black : backButton}>
+      <Image style={styles.backButton} source={color == Color.black(1) ? backButton_Black : backButton}>
       </Image>
       </Pressable>
       <Text style={styles.headerTitle}>{screenName}</Text>

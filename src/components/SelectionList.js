@@ -52,8 +52,8 @@ const SelectionList = ({ selections, style, onSelect,isMulti = false, resetIndex
               {
                 backgroundColor:
                   currentIndexes.includes(index)
-                    ? Color.colorKhaki
-                    : Color.colorWhitesmoke_100,
+                    ? Color.primary_700(1)
+                    : Color.gray_100(1),
               },
             ]}
             onPress={() => handleSelect(index)}
@@ -61,7 +61,7 @@ const SelectionList = ({ selections, style, onSelect,isMulti = false, resetIndex
             <Text
               style={[
                 styles.text,
-                { color: currentIndexes.includes(index) ? Color.white : Color.black },
+                { color: currentIndexes.includes(index) ? Color.white(1) : Color.black(1) },
               ]}
             >
               {selection}
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 12,
     height: 52,
-    backgroundColor: Color.colorWhitesmoke_100,
+    backgroundColor: Color.gray_100(1),
   },
 
   selectionText: {

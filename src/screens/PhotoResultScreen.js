@@ -19,7 +19,7 @@ const PhotoResultScreen = () => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     display: 'flex',
     flexDirection: "column",
     width: '100%',
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
      fontFamily: FontFamily.PretendardRegular,
      lineHeight: 34,
      textAlign: "center",
-     color: Color.black
+     color: Color.black(1)
   },
 
   img_checkmark:{

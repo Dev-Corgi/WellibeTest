@@ -1,39 +1,44 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import {StyleSheet, Image, View, Text,TextInput, Pressable,ScrollView} from 'react-native';
 import {Color,FontFamily} from '../GlobalStyles';
 import Button1 from '../components/Button1';
 import {useNavigation} from '@react-navigation/native';
+import { StarterContext } from '../store/StarterContext';
 
 
 const PlanCheck = () => {
   const navigation = useNavigation();
+//나중에 없앨것
+  const {isStarter,setIsStarter} = useContext(StarterContext)
+//나중에 없앨것
+
   return (
     <View style = {styles.view}>
     <View style = {styles.banner}>
         <Image style = {styles.bannerImage} source={require("../assets/img/PlanCheck.png")}></Image>
-        <Text style = {{position: "relative", marginLeft : 31 ,marginTop: 147, fontFamily: "PretendardRegular", color: Color.white, fontSize: 16}}>
+        <Text style = {{position: "relative", marginLeft : 31 ,marginTop: 147, fontFamily: "PretendardRegular", color: Color.white(1), fontSize: 16}}>
             풍부한 표정 만들기
         </Text>
-        <Text style = {{position: "relative", marginLeft : 31 ,marginTop: 2, fontFamily: "PretendardBold", color: Color.white, fontSize: 22}}>
+        <Text style = {{position: "relative", marginLeft : 31 ,marginTop: 2, fontFamily: "PretendardBold", color: Color.white(1), fontSize: 22}}>
             밝고 자신감있는 표정 만들기
         </Text>
         <View style = {styles.bannerForeground}>
-            <Text style = {{fontFamily : "PretendardBold", fontSize:14, color: Color.white}}>1차 시즌</Text>
-            <Text style = {{fontFamily : "PretendardRegular", fontSize:14, color: Color.white}}>{"2023.02.03~2023.03.03"}</Text>
+            <Text style = {{fontFamily : "PretendardBold", fontSize:14, color: Color.white(1)}}>1차 시즌</Text>
+            <Text style = {{fontFamily : "PretendardRegular", fontSize:14, color: Color.white(1)}}>{"2023.02.03~2023.03.03"}</Text>
         </View>
     </View>
-    <Text style = {{fontFamily : "PretendardBold", fontSize:22, color: Color.black,marginTop:35,marginLeft:29}}>{"웰리님만을 위한\n시즌 트레이닝 플랜이에요"}</Text>
+    <Text style = {{fontFamily : "PretendardBold", fontSize:22, color: Color.black(1),marginTop:35,marginLeft:29}}>{"웰리님만을 위한\n시즌 트레이닝 플랜이에요"}</Text>
     <View style = {styles.trainingTagsFrame}>
       <View style = {styles.trainingTag}>
         <Text style = {styles.trainingTagTitle}>트레이닝 수</Text>
-        <View style = {[styles.trainingTagInfo,{backgroundColor: "rgba(245,212,96,0.1)"}]}>
-          <Text style = {[styles.trainingTagInfoText,{color: Color.colorKhaki}]}>6개</Text>
+        <View style = {[styles.trainingTagInfo,{backgroundColor: Color.primary_500(0.1)}]}>
+          <Text style = {[styles.trainingTagInfoText,{color: Color.primary_700(1)}]}>6개</Text>
         </View>
       </View>
       <View style = {styles.trainingTag}>
         <Text style = {styles.trainingTagTitle}>트레이닝 시간</Text>
-        <View style = {[styles.trainingTagInfo,{backgroundColor: "rgba(0,153,255,0.1)"}]}>
-          <Text style = {[styles.trainingTagInfoText,{color: Color.subBlue}]}>4분 21초</Text>
+        <View style = {[styles.trainingTagInfo,{backgroundColor: Color.system_300(0.1)}]}>
+          <Text style = {[styles.trainingTagInfoText,{color: Color.system_300(1)}]}>4분 21초</Text>
         </View>
       </View>
     </View>
@@ -125,7 +130,7 @@ const PlanCheck = () => {
     <Button1
           style={{position: 'absolute', bottom: 36, marginLeft: 27}}
           text={'다음'}
-          onPress={() =>navigation.navigate("PhotoAuth")}
+          onPress={() =>{if(isStarter){ navigation.navigate("PhotoAuth"); setIsStarter(false)} else{ navigation.navigate("DailyTrainingReport")}}}
          ></Button1>
     </View>
   );
@@ -133,7 +138,7 @@ const PlanCheck = () => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     width: '100%',
     height: '100%',
   },
@@ -159,14 +164,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
-    backgroundColor: "rgba(0,0,0,0.2)",
+    backgroundColor: Color.black(0.2),
     gap: 120
   },
 
   title: {
     fontFamily: FontFamily.PretendardBold,
     fontSize: 22,
-    color: Color.black,
+    color: Color.black(1),
     lineHeight: 34,
     width: '100%',
     textAlign: 'left',
@@ -193,7 +198,7 @@ const styles = StyleSheet.create({
   trainingTagTitle:{
      fontFamily: "PretendardRegular",
      fontSize: 14,
-     color: Color.colorGray_400
+     color: Color.gray_500(1)
   },
 
   trainingTagInfo:{
@@ -236,7 +241,7 @@ const styles = StyleSheet.create({
   top: 2.5,
   fontFamily: "PretendardSemiBold",
   fontSize: 16,
-  color: Color.black
+  color: Color.black(1)
  },
 
  trainingSetContent:{
@@ -245,7 +250,7 @@ const styles = StyleSheet.create({
   top: 25.5,
   fontFamily: "PretendardSemiBold",
   fontSize: 12,
-  color: Color.colorGray_500
+  color: Color.gray_400(1)
  },
 
  trainingSetDetailButton:{
@@ -255,20 +260,20 @@ const styles = StyleSheet.create({
   borderRadius:8,
   paddingHorizontal: 12,
   paddingVertical: 9,
-  backgroundColor: "rgba(245,212,96,0.1)"
+  backgroundColor: Color.primary_500(0.1)
  },
 
  trainingSetDetailButtonText:{
   fontFamily: "PretendardMedium",
   fontSize: 12,
-  color: Color.orange,
+  color: Color.primary_700(1),
  },
  trainingSetBottomLine:{
      position: "absolute",
      width: "100%",
      height:1,
      bottom: 0,
-     backgroundColor: Color.colorWhitesmoke_100
+     backgroundColor: Color.gray_100(1)
  },
 
  scrollRect:{

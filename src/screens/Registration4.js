@@ -56,7 +56,7 @@ const Registration4 = ({buttonCallBack}) => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     width: '100%',
     height: '100%',
   },
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: FontFamily.PretendardBold,
     fontSize: 22,
-    color: Color.black,
+    color: Color.black(1),
     lineHeight: 34,
     width: '100%',
     textAlign: 'left',

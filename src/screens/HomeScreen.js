@@ -58,7 +58,7 @@ const HomeScreen = () => {
         <MessageBubble message = {"안녕하세요,웰리닙"}></MessageBubble>
         <MessageBubble message = {"오늘도 힘차게 트레이닝 해봐요"}></MessageBubble>
       </View>
-    <Pressable style = {styles.bottomFrame}>
+    <Pressable style = {styles.bottomFrame} onPress={() => navigation.navigate("TodayTraining")}>
         <Text style ={styles.bottomText}>오늘의 트레이닝</Text>
     </Pressable>
     </View>
@@ -67,7 +67,7 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: Color.white,
+    backgroundColor: Color.white(1),
     display: 'flex',
     width: '100%',
     height: '100%',
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
      marginTop: 26,
      width: 334,
      height: 47,
-     backgroundColor:"rgba(0,0,0,0.1)",
+     backgroundColor: Color.black(0.1),
      borderRadius: 10
   },
 
@@ -145,13 +145,13 @@ const styles = StyleSheet.create({
   recordTitle:{
      fontFamily: FontFamily.PretendardBold,
      fontSize: 14,
-     color: Color.white,
+     color: Color.white(1),
   },
 
   recordContent:{
     fontFamily: FontFamily.PretendardBold,
     fontSize: 14,
-    color: Color.white,
+    color: Color.white(1),
   },
 
   bottomFrame:{
@@ -161,13 +161,13 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: "100%",
     height: 87,
-    backgroundColor: Color.black
+    backgroundColor: Color.black(1)
   },
 
   bottomText:{
     fontFamily: FontFamily.PretendardBold,
     fontSize: 18,
-    color: Color.colorKhaki,
+    color: Color.primary_700(1),
     marginTop: 30
   },
 

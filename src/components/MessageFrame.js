@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "left",
         borderRadius : 10,
-        backgroundColor : Color.white
+        backgroundColor : Color.white(1)
     },
 
     text: {
