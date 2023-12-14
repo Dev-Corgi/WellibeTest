@@ -5,7 +5,7 @@ import backButton from "../assets/img/backButton_White.png";
 import backButton_Black from "../assets/img/backButton.png"
 import {useNavigation} from '@react-navigation/native';
 import { ScreenNameContext } from "../store/ScreenNameContext";
-const NavigationHeader = ({ color = Color.black(1), style }) => {
+const NavigationHeaderExt = ({ color = Color.black(1), style }) => {
 
   const { screenName, setScreenName } = useContext(ScreenNameContext);
   const navigation = useNavigation();
@@ -54,4 +54,4 @@ const NavigationHeader = ({ color = Color.black(1), style }) => {
 
 
 
-export default NavigationHeader;
+export default NavigationHeaderExt;

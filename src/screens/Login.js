@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image, View,Text } from 'react-native';
-import { Color, FontFamily } from '../GlobalStyles';
+import { Color, FontFamily,height } from '../GlobalStyles';
 import LoginButton from '../components/LoginButton';
 import {useNavigation} from '@react-navigation/native';
 const Login = () => {
@@ -14,11 +14,14 @@ const Login = () => {
     <View style={styles.view}>
       <Image style={styles.backgroundImg} source={require('../assets/img/loginbackground.png')}></Image>
         <View style={styles.frame}>
+          <View style = {styles.upper}>
           <Image
             style={styles.textLogo}
             source={require('../assets/img/textlogo.png')}>
           </Image>
-          <Text style={styles.slogan}>
+          </View>
+         <View style = {styles.bottom}>
+                    <Text style={styles.slogan}>
             {sloganMessage}
           </Text>
           <Text style={styles.subSlogan}>
@@ -28,8 +31,9 @@ const Login = () => {
             <LoginButton backgroundColor={Color.kakaoYellow(1)} logo={require('../assets/img/kakaologo.png')} text={"카카오 로그인"} onPress={() => navigation.navigate("Registration")}></LoginButton>
             <LoginButton backgroundColor={Color.white(1)} logo={require("../assets/img/googlelogo.png")} text={"구글로 로그인"} onPress={() => navigation.navigate("Registration")}></LoginButton>
           </View>
-
+         </View>
         </View>
+
     </View>
   );
 };
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     marginTop: 415,
     marginLeft:9.5,
-    fontSize: 30,
+    fontSize: 30 * height,
     color : Color.white(1),
     fontFamily : FontFamily.PretendardBold
   },
@@ -73,7 +77,7 @@ const styles = StyleSheet.create({
     position: "relative",
     marginTop: 24,
     marginLeft:9.5,
-    fontSize: 18,
+    fontSize: 18 * height,
     color : Color.white(1),
     fontFamily : FontFamily.PretendardRegular
   },
@@ -91,9 +95,17 @@ const styles = StyleSheet.create({
   frame: {
     position: "relative",
     width: 327,
-    height: 724,
-    display: 'flex',
-    flexDirection: "column",
+    height: "100%",
+  },
+
+  upper:{
+    position: "absolute",
+    top: 52,
+  },
+
+  bottom:{
+     position: "absolute",
+     bottom: 36,
   }
 
 });

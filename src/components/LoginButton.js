@@ -17,7 +17,7 @@ const LoginButton = ({backgroundColor,logo,text,onPress}) => {
 const styles = StyleSheet.create({
     view: {
         position: "relative",
-        width: "100%",
+        width: 327,
         height: 57,
         display: "flex",
         justifyContent: "center",
