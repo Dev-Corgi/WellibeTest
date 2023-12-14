@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Color,height } from "../GlobalStyles";
 
-const fullWidth = 326;
+const fullWidth = 340;
 
 const ProgressBar = ({ style, progress = 0 }) => {
   return (

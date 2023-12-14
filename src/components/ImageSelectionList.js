@@ -37,16 +37,18 @@ const styles = StyleSheet.create({
     position: "relative",
     display: "flex",
     flexDirection: "row",
-    gap: 11,
+    gap: 13,
     flexWrap: "wrap",
-    width: 327,
+    width: 340,
+    justifyContent: "space-between",
   },
 
   selectionBox: {
     position: "relative",
-    borderRadius: 10,
-    width: 158,
+    borderRadius: 12,
+    width: 163,
     height: 215,
+    overflow: "hidden"
   },
 
   checkEmoji: {

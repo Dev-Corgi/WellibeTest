@@ -19,19 +19,20 @@ const styles = StyleSheet.create({
     view:{
         position : "relative",
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        width: "100%"
     },
 
     messageFrame: {
         position: "relative",
+        width: "100%",
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-start",
         alignItems: "center",
         borderRadius : 12,
-        width : 330,
         height: 52,
-        marginTop : 26,
+        marginTop : 10,
         backgroundColor : Color.gray_100(1)
     },
 

@@ -20,7 +20,7 @@ const DailyTrainingReport = () => {
 
   return (
     <View style={styles.view}>
-        <NavigationHeader style={{ marginTop: 41}}></NavigationHeader>
+        <NavigationHeader style={{marginTop: 41}}></NavigationHeader>
        <View style = {styles.planList}>
         <PlanComponent isActive={true} category={"풍부한 표정 만들기"} title = {"밝고 자신감 있는 표정 만들기"} season={1} startDuration={"2023.02.03"} endDuration={"2023.03.03"} backgroundImg={BackImage1}></PlanComponent>
         <PlanComponent isActive={false} category={"풍부한 표정 만들기"} title = {"자연스럽게 웃는 표정 만들기"} season={1} startDuration={"2023.02.03"} endDuration={"2023.03.03"} backgroundImg={BackImage2}></PlanComponent>

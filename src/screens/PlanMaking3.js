@@ -30,12 +30,12 @@ const PlanMaking3 = () => {
     <View style={styles.view}>
       <RegistrationTooltip
         title={"현재 해당하는\n상태에 체크해 주세요"}
-        message={"적절한 트레이닝 구성에 도움이 되요."}
+        message={"중복 체크도 가능해요."}
       ></RegistrationTooltip>
         <SelectionList
          style={{marginTop: 32}}
           selections={[
-            "눈에 힘이 없거나 눈꺼풀이 쳐져 있어요.",
+            "눈에 힘이 없거나 눈꺼풀이 쳐져 있어요",
             "웃을 때 소극적으로 웃어요",
             "볼(입 옆의 피부)이 처져 있어요",
             "입꼬리가 처져 있거나 비뚤어져 있어요",
@@ -66,6 +66,8 @@ const styles = StyleSheet.create({
     backgroundColor: Color.white(1),
     width: "100%",
     height: "100%",
+    display: "flex",
+    alignItems: "center"
   },
 
   contentFrame: {

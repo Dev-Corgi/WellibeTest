@@ -16,16 +16,16 @@ const NavigationHeader = ({ color = Color.black(1), style }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          width: 326,
+          width: 340,
          height: 30,
         },
       
         backButtonFrame: {
           position: "absolute",
           top: 5,
-          left: 0,
-          width: 7.65,
-          height: 14.24,
+          left: -5,
+          width: 18.6*1.3,
+          height: 18.6*1.3,
         },
 
         backButton:{

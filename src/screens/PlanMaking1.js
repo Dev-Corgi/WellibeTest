@@ -62,6 +62,8 @@ const styles = StyleSheet.create({
     backgroundColor: Color.white(1),
     width: "100%",
     height: "100%",
+    display: "flex",
+    alignItems: "center"
   },
 
   contentFrame: {

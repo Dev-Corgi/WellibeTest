@@ -16,18 +16,20 @@ const PlanCheck = () => {
     <View style = {styles.view}>
     <View style = {styles.banner}>
         <Image style = {styles.bannerImage} source={require("../assets/img/PlanCheck.png")}></Image>
-        <Text style = {{position: "relative", marginLeft : 31 ,marginTop: 147, fontFamily: "PretendardRegular", color: Color.white(1), fontSize: 16 * height}}>
+        <Text style = {{position: "relative", width: 340 ,marginTop: 147, fontFamily: "PretendardRegular", color: Color.white(1), fontSize: 16 * height}}>
             풍부한 표정 만들기
         </Text>
-        <Text style = {{position: "relative", marginLeft : 31 ,marginTop: 2, fontFamily: "PretendardBold", color: Color.white(1), fontSize: 22 * height}}>
+        <Text style = {{position: "relative", width: 340 , marginTop: 2, fontFamily: "PretendardBold", color: Color.white(1), fontSize: 22 * height}}>
             밝고 자신감있는 표정 만들기
         </Text>
         <View style = {styles.bannerForeground}>
+          <View style = {styles.bannerInner}>
             <Text style = {{fontFamily : "PretendardBold", fontSize:14, color: Color.white(1)}}>1차 시즌</Text>
             <Text style = {{fontFamily : "PretendardRegular", fontSize:14, color: Color.white(1)}}>{"2023.02.03~2023.03.03"}</Text>
+          </View>
         </View>
     </View>
-    <Text style = {{fontFamily : "PretendardBold", fontSize:22, color: Color.black(1),marginTop:35,marginLeft:29}}>{"웰리님만을 위한\n시즌 트레이닝 플랜이에요"}</Text>
+    <Text style = {{fontFamily : "PretendardBold", fontSize:22, color: Color.black(1),marginTop:25,marginLeft:29}}>{"웰리님만을 위한\n시즌 트레이닝 플랜이에요"}</Text>
     <View style = {styles.trainingTagsFrame}>
       <View style = {styles.trainingTag}>
         <Text style = {styles.trainingTagTitle}>트레이닝 수</Text>
@@ -145,6 +147,8 @@ const styles = StyleSheet.create({
 
   banner:{
     position: "relative",
+    display: "flex",
+    alignItems: "center",
     width: "100%",
     height:261,
   },
@@ -160,12 +164,19 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: "100%",
     height: 45,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "row",
     backgroundColor: Color.black(0.2),
-    gap: 120
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+
+  bannerInner:{
+    position: "relative",
+    width: 340,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between"
   },
 
   title: {
@@ -180,7 +191,7 @@ const styles = StyleSheet.create({
   },
 
   trainingTagsFrame:{
-    marginTop: 31,
+    marginTop: 21,
     display: "flex",
     flexDirection: "row",
     gap: 20,
@@ -217,6 +228,8 @@ const styles = StyleSheet.create({
   position: "relative",
   display: "flex",
   flexDirection: "column",
+  width: "100%",
+  alignItems: "center",
   gap: 19,
  },
 
@@ -224,7 +237,6 @@ const styles = StyleSheet.create({
   position: "relative",
   width: 330,
   height: 54,
-  marginLeft: 27
  },
 
  trainingSetImoji:{

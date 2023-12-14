@@ -48,9 +48,13 @@ const PlanMaking2 = () => {
 
 const styles = StyleSheet.create({
   view: {
+    position: "relative",
     backgroundColor: Color.white(1),
     width: '100%',
     height: '100%',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
 
   contentFrame: {

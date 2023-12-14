@@ -46,8 +46,8 @@ const PlanLoading = () => {
     <View style = {styles.view}>
       <RegistrationTooltip
         style = {{marginTop: 90}}
-        title={"작심삼일\n벗어날 수 있도록 도와드려요"}
-        message = {"언제든 변경할 수 있어요"}
+        title={"맞춤 트레이닝 플랜을\n구성 중 입니다"}
+        message = {"매일 해야 효과가 금방 나타나요!"}
         ></RegistrationTooltip>
       <Image style = {styles.planImage} source={require("../assets/img/PlanLoading.png")}></Image>
       <View style = {styles.checkFrame}>
