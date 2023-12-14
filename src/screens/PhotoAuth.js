@@ -8,7 +8,7 @@ import {
   Pressable,
   Alert,
 } from "react-native";
-import { Color, FontFamily } from "../GlobalStyles";
+import { Color, FontFamily ,height} from "../GlobalStyles";
 import RegistrationInfo from "../components/RegistrationInfo";
 import { useNavigation } from "@react-navigation/native";
 import { AutoFocus, Camera, CameraType } from "expo-camera";
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 22,
+    fontSize: 22 * height,
     color: Color.black(1),
     lineHeight: 34,
     width: "100%",
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
 
   guideText: {
     fontFamily: "PretendardRegular",
-    fontSize: 14,
+    fontSize: 14 * height,
     color: Color.navy(1),
     opacity: 0.6,
   },

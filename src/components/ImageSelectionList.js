@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, Pressable, Image } from "react-native";
-import { Color, FontFamily } from "../GlobalStyles";
+import { Color, FontFamily,height } from "../GlobalStyles";
 
 const ImageSelectionList = ({ images, style, onSelect }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);

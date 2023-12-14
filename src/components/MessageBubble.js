@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text } from 'react-native';
-import { Color, FontFamily } from "../GlobalStyles";
+import { Color, FontFamily,height } from "../GlobalStyles";
 
 const MessageBubble = ({message}) => {
   return (
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 14,
+    fontSize: 14 * height,
     fontFamily: FontFamily.PretendardRegular,
     lineHeight: 18,
     color: Color.black(1),

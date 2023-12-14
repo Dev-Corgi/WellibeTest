@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useRef,useContext} from 'react';
 import {StyleSheet, Image, View, Text} from 'react-native';
-import {Color, FontFamily} from '../GlobalStyles';
+import {Color, FontFamily,height} from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
 import Button1 from '../components/Button1';
 import { AutoFocus, Camera, CameraType } from 'expo-camera';
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
    headerTitle:{
     position: "relative",
     fontFamily: "PretendardSemiBold",
-    fontSize: 20,
+    fontSize: 20 * height,
     color: Color.white(1)
    },
 
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     position: "relative",
     marginTop: 52,
     fontFamily: "PretendardBold",
-    fontSize: 22,
+    fontSize: 22 * height,
     color: Color.white(1)
   },
 

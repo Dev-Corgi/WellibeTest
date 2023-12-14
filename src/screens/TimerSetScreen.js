@@ -8,7 +8,7 @@ import {
   Pressable,
   Alert,
 } from "react-native";
-import { Color, FontFamily } from "../GlobalStyles";
+import { Color, FontFamily ,height} from "../GlobalStyles";
 import { useNavigation } from "@react-navigation/native";
 import Button1 from "../components/Button1";
 import AlarmExample from "../assets/img/AlarmExample.png";
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 22,
+    fontSize: 22 * height,
     color: Color.black(1),
     lineHeight: 34,
     width: "100%",
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
 
   guideText: {
     fontFamily: "PretendardRegular",
-    fontSize: 14,
+    fontSize: 14 * height,
     color: Color.navy(1),
     opacity: 0.6,
   },
@@ -138,13 +138,13 @@ const styles = StyleSheet.create({
     width: 66,
     textAlign: "center",
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 40,
+    fontSize: 40 * height,
     color: Color.black(1),
   },
 
   wheelLabel:{
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 40,
+    fontSize: 40 * height,
     color: Color.black(1),
   }
 });

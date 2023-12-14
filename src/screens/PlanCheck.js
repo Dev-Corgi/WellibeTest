@@ -1,6 +1,6 @@
 import React,{useContext} from 'react';
 import {StyleSheet, Image, View, Text,TextInput, Pressable,ScrollView} from 'react-native';
-import {Color,FontFamily} from '../GlobalStyles';
+import {Color,FontFamily,height} from '../GlobalStyles';
 import Button1 from '../components/Button1';
 import {useNavigation} from '@react-navigation/native';
 import { StarterContext } from '../store/StarterContext';
@@ -16,10 +16,10 @@ const PlanCheck = () => {
     <View style = {styles.view}>
     <View style = {styles.banner}>
         <Image style = {styles.bannerImage} source={require("../assets/img/PlanCheck.png")}></Image>
-        <Text style = {{position: "relative", marginLeft : 31 ,marginTop: 147, fontFamily: "PretendardRegular", color: Color.white(1), fontSize: 16}}>
+        <Text style = {{position: "relative", marginLeft : 31 ,marginTop: 147, fontFamily: "PretendardRegular", color: Color.white(1), fontSize: 16 * height}}>
             풍부한 표정 만들기
         </Text>
-        <Text style = {{position: "relative", marginLeft : 31 ,marginTop: 2, fontFamily: "PretendardBold", color: Color.white(1), fontSize: 22}}>
+        <Text style = {{position: "relative", marginLeft : 31 ,marginTop: 2, fontFamily: "PretendardBold", color: Color.white(1), fontSize: 22 * height}}>
             밝고 자신감있는 표정 만들기
         </Text>
         <View style = {styles.bannerForeground}>
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 22,
+    fontSize: 22 * height,
     color: Color.black(1),
     lineHeight: 34,
     width: '100%',
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
 
   trainingTagTitle:{
      fontFamily: "PretendardRegular",
-     fontSize: 14,
+     fontSize: 14 * height,
      color: Color.gray_500(1)
   },
 
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
  
  trainingTagInfoText:{
   fontFamily: "PretendardBold",
-  fontSize: 12,
+  fontSize: 12 * height,
   opacity: 1
  },
 
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
   left: 57,
   top: 2.5,
   fontFamily: "PretendardSemiBold",
-  fontSize: 16,
+  fontSize: 16 * height,
   color: Color.black(1)
  },
 
@@ -249,7 +249,7 @@ const styles = StyleSheet.create({
   left: 57,
   top: 25.5,
   fontFamily: "PretendardSemiBold",
-  fontSize: 12,
+  fontSize: 12 * height,
   color: Color.gray_400(1)
  },
 
@@ -265,7 +265,7 @@ const styles = StyleSheet.create({
 
  trainingSetDetailButtonText:{
   fontFamily: "PretendardMedium",
-  fontSize: 12,
+  fontSize: 12 * height,
   color: Color.primary_700(1),
  },
  trainingSetBottomLine:{

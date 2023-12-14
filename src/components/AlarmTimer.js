@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
-import { Color, FontFamily } from '../GlobalStyles';
+import { Color, FontFamily,height } from '../GlobalStyles';
 import WheelPickerExpo from "react-native-wheel-picker-expo";
 const AlarmTimer = ({style}) => {
 
@@ -55,13 +55,13 @@ const styles = StyleSheet.create({
         width: 66,
         textAlign: "center",
         fontFamily: FontFamily.PretendardBold,
-        fontSize: 40,
+        fontSize: 40 * height,
         color: Color.black(1),
       },
     
       wheelLabel:{
         fontFamily: FontFamily.PretendardBold,
-        fontSize: 40,
+        fontSize: 40 * height,
         color: Color.black(1),
       }
 

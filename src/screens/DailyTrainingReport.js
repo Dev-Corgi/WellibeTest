@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Image, View, Text, Easing } from "react-native";
-import { Color, FontFamily } from "../GlobalStyles";
+import { Color, FontFamily,height } from "../GlobalStyles";
 import Button1 from "../components/Button1";
 import { ScreenNameContext } from "../store/ScreenNameContext";
 import NavigationHeader from "../components/NavigationHeader";
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     position: "relative",
     fontFamily: FontFamily.PretendardSemiBold,
-    fontSize: 20,
+    fontSize: 20 * height,
     color: Color.black(1),
   },
 
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 22,
+    fontSize: 22 * height,
     color: Color.black(1),
     lineHeight: 34,
     width: "100%",

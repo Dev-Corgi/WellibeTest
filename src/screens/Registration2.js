@@ -6,7 +6,7 @@ import {
   Pressable,
   Modal,
 } from "react-native";
-import { Color, FontFamily } from "../GlobalStyles";
+import { Color, FontFamily,height } from "../GlobalStyles";
 // import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from "@react-navigation/native";
 import WheelPickerExpo from "react-native-wheel-picker-expo";
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 22,
+    fontSize: 22 * height,
     color: Color.black(1),
     lineHeight: 34,
     width: "100%",
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
 
   inputfieldText: {
     fontFamily: FontFamily.PretendardSemiBold,
-    fontSize: 18,
+    fontSize: 18 * height,
     color: Color.black(1),
   },
 
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.PretendardLight,
     color: Color.gray_600(1),
     width: "100%",
-    fontSize: 12,
+    fontSize: 12 * height,
     marginTop: 14,
     textAlign: "center",
   },
@@ -189,13 +189,13 @@ const styles = StyleSheet.create({
 
   wheelButtonText: {
     position: "relative",
-    fontSize: 16,
+    fontSize: 16 * height,
     FontFamily: FontFamily.PretendardSemiBold,
     color: Color.gray_100(1),
   },
 
   wheelitem: {
-    fontSize: 19,
+    fontSize: 19 * height,
     fontFamily: FontFamily.PretendardLight,
     color: Color.white(1),
   },

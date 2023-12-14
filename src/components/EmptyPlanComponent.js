@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View,Image,Text,Pressable } from "react-native";
-import { Color, FontFamily } from "../GlobalStyles";
+import { Color, FontFamily,height } from "../GlobalStyles";
 import Ic_Check from "../assets/img/Ic_Check.png";
 import Ic_Reload from "../assets/img/Ic_Reload.png";
 import Ic_Gear2 from "../assets/img/Ic_Gear2.png";

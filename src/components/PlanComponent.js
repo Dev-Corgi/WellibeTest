@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View,Image,Text, Pressable } from "react-native";
-import { Color, FontFamily } from "../GlobalStyles";
+import { Color, FontFamily,height } from "../GlobalStyles";
 import Ic_Check from "../assets/img/Ic_Check.png";
 import Ic_Reload from "../assets/img/Ic_Reload.png";
 import Ic_Gear2 from "../assets/img/Ic_Gear2.png";
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
 
     planText:{
         position: "relative",
-       fontSize: 12,
+       fontSize: 12 * height,
        fontFamily: FontFamily.PretendardSemiBold,
        color: Color.white(1)
     },
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         right: 44,
         top: 174,
-       fontSize: 14,
+       fontSize: 14 * height,
        fontFamily: FontFamily.PretendardRegular,
        color: Color.white(1)
     },
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         right: 44,
         top: 195,
-       fontSize: 20,
+       fontSize: 20 * height,
        fontFamily: FontFamily.PretendardBold,
        color: Color.white(1)
     },
@@ -121,14 +121,14 @@ const styles = StyleSheet.create({
 
     seasonText:{
         position: "relative",
-       fontSize: 12,
+       fontSize: 12 * height,
        fontFamily: FontFamily.PretendardBold,
        color: Color.white(1)
     },
 
     durationText:{
         position: "relative",
-       fontSize: 12,
+       fontSize: 12 * height,
        fontFamily: FontFamily.PretendardRegular,
        color: Color.white(1)
     }

@@ -5,7 +5,7 @@ import {
   StyleSheet,
   View,
 } from "react-native";
-import { Color, FontFamily } from "../GlobalStyles";
+import { Color, FontFamily ,height} from "../GlobalStyles";
 import ProgressBar from "../components/ProgressBar";
 import NavigationHeader from "../components/NavigationHeader";
 
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     position: "relative",
     fontFamily: FontFamily.PretendardSemiBold,
-    fontSize: 20,
+    fontSize: 20 * height,
     color: Color.black(1),
   },
 });

@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     position: "relative",
     marginTop: 24,
     marginLeft:9.5,
-    fontSize: 18 * height,
+    fontSize: 18 * height * height,
     color : Color.white(1),
     fontFamily : FontFamily.PretendardRegular
   },

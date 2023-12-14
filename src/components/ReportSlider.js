@@ -1,7 +1,7 @@
 
 import  React, {useState} from 'react';
 import { StyleSheet, Image, View, Text ,Pressable} from 'react-native';
-import { Color, FontFamily } from '../GlobalStyles';
+import { Color, FontFamily,height } from '../GlobalStyles';
 import Slider from "@react-native-community/slider";
 import thumb from "../assets/img/thumb.png"
 

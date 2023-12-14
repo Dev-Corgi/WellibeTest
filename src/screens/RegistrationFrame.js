@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
-import { Color, FontFamily } from '../GlobalStyles';
+import { Color, FontFamily ,height} from '../GlobalStyles';
 import Button1 from '../components/Button1';
 import RegistrationInfo from '../components/RegistrationInfo';
 const RegistrationFrame = () => {
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     position: "relative",
     fontFamily: FontFamily.PretendardSemiBold,
-    fontSize: 20,
+    fontSize: 20 * height,
     color: Color.black(1)
   },
 
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 22,
+    fontSize: 22 * height,
     color: Color.black(1),
     lineHeight: 34,
     width: "100%",
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
 
   inputfieldText: {
     fontFamily: FontFamily.PretendardSemiBold,
-    fontSize: 18,
+    fontSize: 18 * height,
     color: Color.black(1)
   },
 
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.PretendardLight,
     color: Color.gray_500(1),
     width: "100%",
-    fontSize: 12,
+    fontSize: 12 * height,
     marginTop: 14,
     textAlign: "center"
   }

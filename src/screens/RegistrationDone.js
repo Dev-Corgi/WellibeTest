@@ -1,5 +1,5 @@
 import {StyleSheet, Image, View,Text} from 'react-native';
-import {Color, FontFamily} from '../GlobalStyles';
+import {Color, FontFamily,height} from '../GlobalStyles';
 import React,{useState,useEffect,useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import { NicknameContext } from '../store/NicknameContext';
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   text1: {
     position: 'relative',
     fontFamily: FontFamily.PretendardRegular,
-    fontSize: 14,
+    fontSize: 14 * height,
     color: Color.navy(1),
     opacity: 0.6,
     marginTop: 362
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   text2: {
     position: 'relative',
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 26,
+    fontSize: 26 * height,
     color: Color.primary_700(1),
     marginTop: 21
   },

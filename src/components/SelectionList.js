@@ -7,7 +7,7 @@ import {
   Pressable,
   FlatList,
 } from "react-native";
-import { Color, FontFamily } from "../GlobalStyles";
+import { Color, FontFamily,height } from "../GlobalStyles";
 
 const SelectionList = ({ selections, style, onSelect,isMulti = false, resetIndex = null }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
 
   selectionText: {
     fontFamily: FontFamily.PretendardSemiBold,
-    fontSize: 18,
+    fontSize: 18 * height,
   },
 });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
-import { Color, FontFamily } from '../GlobalStyles';
+import { Color, FontFamily,height } from '../GlobalStyles';
 
 const Button1 = ({text,style,onPress,isActive = true}) => {
     return (
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     text: {
         position: "relative",
         width: "auto",
-        fontSize: 16,
+        fontSize: 16 * height,
         textAlign: "center",
         fontFamily : FontFamily.PretendardBold,
         color: Color.white(1)

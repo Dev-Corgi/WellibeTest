@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { StyleSheet, Image, View,Text,Pressable } from 'react-native';
-import { Color, FontFamily } from '../GlobalStyles';
+import { Color, FontFamily ,height} from '../GlobalStyles';
 import { LinearGradient } from 'expo-linear-gradient';
 import Button1 from '../components/Button1';      
 import {useNavigation} from '@react-navigation/native';
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     marginTop: 623,
    fontFamily : FontFamily.PretendardRegular,
    color : Color.white(),
-   fontSize : 14
+   fontSize: 14 * height
   },
 
   background:{
@@ -84,14 +84,14 @@ const styles = StyleSheet.create({
 
   modalText1: {
     fontFamily: FontFamily.PretendardRegular,
-    fontSize: 20,
+    fontSize: 20 * height,
     color : Color.black(),
     marginTop: 25
   },
 
   modalText2: {
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 20,
+    fontSize: 20 * height,
     color : Color.black(),
   },
 
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
 
   modalButton1Text:{
     fontFamily : FontFamily.PretendardBold,
-    fontSize : 14,
+    fontSize: 14 * height,
     color: Color.white()
   },
 

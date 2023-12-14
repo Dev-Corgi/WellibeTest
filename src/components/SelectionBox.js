@@ -1,6 +1,6 @@
 import  React, {useState} from 'react';
 import { StyleSheet, Image, View, Text ,Pressable} from 'react-native';
-import { Color, FontFamily } from '../GlobalStyles';
+import { Color, FontFamily,height } from '../GlobalStyles';
 
 const SelectionBox = ({text}) => {
     const [isActive, setisActive] = useState(false)
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     
       inputfieldText: {
         fontFamily: FontFamily.PretendardSemiBold,
-        fontSize: 18,
+        fontSize: 18 * height,
       },
 
 });

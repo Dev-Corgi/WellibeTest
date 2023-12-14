@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
-import { Color, FontFamily } from '../GlobalStyles';
+import { Color, FontFamily ,height} from '../GlobalStyles';
 import NavigationHeader from '../components/NavigationHeader';
 import PointFrame from "../assets/img/PointFrame.png"
 import BackFullImage1 from "../assets/img/backFullImage1.png"
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
 
   reviewPoint:{
    fontFamily: FontFamily.PretendardBold,
-   fontSize: 24,
+   fontSize: 24 * height,
    color: Color.system_400()
   },
 
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   statTitle:{
     fontFamily: FontFamily.PretendardBold,
     color: Color.white(),
-    fontSize: 14,
+    fontSize: 14 * height,
     // marginLeft: 21
     // marginLeft: 99
   },
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     marginLeft : 7.5,
     fontFamily: FontFamily.PretendardBold,
     color: Color.system_300(),
-    fontSize: 14,
+    fontSize: 14 * height,
   }
 
 });

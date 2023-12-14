@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack"; // Stack 네비게이션
 import { StyleSheet, Image, View, Text, Easing } from "react-native";
-import { Color, FontFamily } from "../GlobalStyles";
+import { Color, FontFamily ,height} from "../GlobalStyles";
 import ProgressBar from "../components/ProgressBar";
 import Button1 from "../components/Button1";
 import { ImageContext } from "../store/ImageContext";
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     position: "relative",
     fontFamily: FontFamily.PretendardSemiBold,
-    fontSize: 20,
+    fontSize: 20 * height,
     color: Color.black(1),
   },
 
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 22,
+    fontSize: 22 * height,
     color: Color.black(1),
     lineHeight: 34,
     width: "100%",

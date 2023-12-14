@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import {DeviceEventEmitter,StyleSheet, Image, View, Text, Pressable} from 'react-native';
-import {Color, FontFamily} from '../GlobalStyles';
+import {Color, FontFamily,height} from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
 import ProgressBar from '../components/ProgressBar';
 import {useNavigation} from '@react-navigation/native';
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 22,
+    fontSize: 22 * height,
     color: Color.black(1),
     lineHeight: 34,
     width: '100%',
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
 
   loadingText:{
     fontFamily: "PretendardRegular",
-    fontSize: 14,
+    fontSize: 14 * height,
     color: Color.navy(1),
     opacity: 0.6
   },

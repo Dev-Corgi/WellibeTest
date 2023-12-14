@@ -12,7 +12,7 @@ const DynamicTextFrame = () => {
   return (
     <View style={{ padding: 10, borderWidth: 1, borderColor: 'black' }}>
       {/* 외부 프레임 */}
-      <Text style={{ fontSize: 18 }}>{text}</Text>
+      <Text style={{ fontSize: 18 * height }}>{text}</Text>
       <TextInput
         placeholder="내부 텍스트 입력"
         value={text}

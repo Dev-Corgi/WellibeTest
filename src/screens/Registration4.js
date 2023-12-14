@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react';
 import {DeviceEventEmitter,StyleSheet, Image, View, Text} from 'react-native';
-import {Color, FontFamily} from '../GlobalStyles';
+import {Color, FontFamily,height} from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
 import SelectionList from '../components/SelectionList';
 import {useNavigation} from '@react-navigation/native';
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 22,
+    fontSize: 22 * height,
     color: Color.black(1),
     lineHeight: 34,
     width: '100%',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image, View,Text } from 'react-native';
-import { Color, FontFamily } from '../GlobalStyles';
+import { Color, FontFamily ,height} from '../GlobalStyles';
 import Button1 from '../components/Button1';      
 import {useNavigation} from '@react-navigation/native';
 import CheckVid from "@images/vid_checkAnimation.png"
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   message:{
      position: "relative",
      marginTop: 254,
-     fontSize: 22,
+     fontSize: 22 * height,
      fontFamily: FontFamily.PretendardRegular,
      lineHeight: 34,
      textAlign: "center",

@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react';
 import {DeviceEventEmitter,StyleSheet, Image, View, Text,TextInput} from 'react-native';
-import {Color,FontFamily} from '../GlobalStyles';
+import {Color,FontFamily,height} from '../GlobalStyles';
 import {useNavigation} from '@react-navigation/native';
 import RegistrationTooltip from '../components/RegistrationTooltip';
 import Button1 from '../components/Button1';
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 22,
+    fontSize: 22 * height,
     color: Color.black(1),
     lineHeight: 34,
     width: '100%',
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: Color.gray_100(1),
     fontFamily: FontFamily.PretendardSemiBold,
-    fontSize: 18,
+    fontSize: 18 * height,
     color: Color.black(1),
     textAlign: 'center'
   },
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.PretendardLight,
     color: Color.gray_500(1),
     width: '100%',
-    fontSize: 12,
+    fontSize: 12 * height,
     marginTop: 14,
     textAlign: 'center',
   },

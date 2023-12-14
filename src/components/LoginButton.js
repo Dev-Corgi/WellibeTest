@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
-import { FontFamily } from '../GlobalStyles';
+import { FontFamily,height } from '../GlobalStyles';
 
 const LoginButton = ({backgroundColor,logo,text,onPress}) => {
     return (
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     text: {
         position: "relative",
         width: "auto",
-        fontSize: 16,
+        fontSize: 16 * height,
         textAlign: "center",
         fontFamily : FontFamily.PretendardRegular
     }

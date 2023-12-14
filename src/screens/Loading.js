@@ -1,5 +1,5 @@
 import {StyleSheet, Image, View} from 'react-native';
-import {Color} from '../GlobalStyles';
+import {Color,height} from '../GlobalStyles';
 import React,{useState,useEffect,useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import { StarterContext } from '../store/StarterContext';

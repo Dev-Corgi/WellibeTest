@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
-import { FontFamily,Color } from '../GlobalStyles';
+import { FontFamily,Color,height } from '../GlobalStyles';
 
 const RegistrationTooltip = ({style,title,message}) => {
     return (
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 
     title: {
         fontFamily: FontFamily.PretendardBold,
-        fontSize: 22,
+        fontSize: 22 * height,
         color: Color.black(1),
         lineHeight: 34,
         width: '100%',
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     message: {
         position: "relative",
         marginLeft : 12,
-        fontSize: 14,
+        fontSize: 14 * height,
         fontFamily : FontFamily.PretendardLight,    
     },
 

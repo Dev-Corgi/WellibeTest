@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { StyleSheet, Image, View,Text, Pressable } from 'react-native';
-import { Color, FontFamily } from '../GlobalStyles';
+import { Color, FontFamily,height } from '../GlobalStyles';
 import { LinearGradient } from 'expo-linear-gradient';
 import Button1 from '../components/Button1';      
 import {useNavigation} from '@react-navigation/native';
@@ -144,13 +144,13 @@ const styles = StyleSheet.create({
 
   recordTitle:{
      fontFamily: FontFamily.PretendardBold,
-     fontSize: 14,
+     fontSize: 14 * height,
      color: Color.white(1),
   },
 
   recordContent:{
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 14,
+    fontSize: 14 * height,
     color: Color.white(1),
   },
 
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
 
   bottomText:{
     fontFamily: FontFamily.PretendardBold,
-    fontSize: 18,
+    fontSize: 18 * height,
     color: Color.primary_700(1),
     marginTop: 30
   },

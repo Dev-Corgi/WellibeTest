@@ -1,6 +1,6 @@
 import React,{useContext,useEffect} from 'react';
 import { StyleSheet, Image, View,Text } from 'react-native';
-import { Color, FontFamily } from '../GlobalStyles';
+import { Color, FontFamily,height } from '../GlobalStyles';
 import { LinearGradient } from 'expo-linear-gradient';
 import Button1 from '../components/Button1';      
 import {useNavigation} from '@react-navigation/native';

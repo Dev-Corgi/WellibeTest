@@ -1,6 +1,6 @@
 import React, { useState,useContext } from "react";
 import { StyleSheet, View,Text,Image, Pressable } from "react-native";
-import { Color,FontFamily } from "../GlobalStyles";
+import { Color,FontFamily,height } from "../GlobalStyles";
 import backButton from "../assets/img/backButton_White.png";
 import backButton_Black from "../assets/img/backButton.png"
 import {useNavigation} from '@react-navigation/native';
@@ -36,7 +36,7 @@ const NavigationHeaderExt = ({ color = Color.black(1), style }) => {
         headerTitle: {
           position: "relative",
           fontFamily: FontFamily.PretendardSemiBold,
-          fontSize: 20,
+          fontSize: 20 * height,
           color: color,
         },
       });

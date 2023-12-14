@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
-import { FontFamily,Color } from '../GlobalStyles';
+import { FontFamily,Color,height } from '../GlobalStyles';
 
 const RegistrationInfo = ({text}) => {
     return (
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     text: {
         position: "relative",
         marginLeft : 12,
-        fontSize: 14,
+        fontSize: 14 * height,
         fontFamily : FontFamily.PretendardLight,    
     },
 
