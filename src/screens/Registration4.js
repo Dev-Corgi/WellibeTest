@@ -18,6 +18,25 @@ const Registration4 = ({buttonCallBack}) => {
 
   const { progress, setProgress } = useContext(ProgressContext);
 
+  function handleRegistration () {
+    navigation.navigate("RegistrationDone");
+  }
+
+  function handleRegistrationReady (nickName) {
+    DeviceEventEmitter.emit('RegistrationReady', { data: 'Custom event data' });
+  }
+
+  useEffect(() => {
+    DeviceEventEmitter.emit('RegistrationReset', { data: 'Custom event data' });
+    // 커스텀 이벤트를 처리하는 함수 등록
+    DeviceEventEmitter.addListener('RegistrationEvent', handleRegistration);
+
+    // 컴포넌트가 언마운트될 때 리스너 해제
+    return () => {
+      DeviceEventEmitter.removeListener('RegistrationEvent', handleRegistration);
+    };
+  }, []);
+
   useEffect(() => {
     setScreenName("직업 선택")
     setProgress(100);
@@ -38,9 +57,9 @@ const Registration4 = ({buttonCallBack}) => {
             '주부',
             '기타',
           ]}
-          onSelect={() => setisButtonActive(true)}
+          onSelect={handleRegistrationReady}
           ></SelectionList>
-      <Button1
+      {/* <Button1
           style={{ position: "absolute", bottom: 36 }}
           text={"다음"}
           onPress={() =>
@@ -49,7 +68,7 @@ const Registration4 = ({buttonCallBack}) => {
             }}
           }
           isActive={isButtonActive}
-        ></Button1>
+        ></Button1> */}
     </View>
   );
 };

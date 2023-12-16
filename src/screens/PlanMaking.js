@@ -19,7 +19,7 @@ import PlanMaking3 from "./PlanMaking3";
 import PlanMaking4 from "./PlanMaking4";
 
 import { ProgressContext } from "../store/ProgressContext";
-
+import Button1 from "../components/Button1";
 
 const PlanMaking = () => {
   const Stack = createNativeStackNavigator();
@@ -33,6 +33,28 @@ const PlanMaking = () => {
     { name: "PlanMaking3", screen: PlanMaking3 },
     { name: "PlanMaking4", screen: PlanMaking4 },
   ];
+
+  const [isButtonActive, setIsButtonActive] = useState(false);
+
+  function handleActiveButton() {
+    setIsButtonActive(true);
+  }
+
+  function handleResetButton() {
+    setIsButtonActive(false);
+  }
+
+  useEffect(() => {
+    DeviceEventEmitter.removeAllListeners("PlanReady");
+    DeviceEventEmitter.removeAllListeners("PlanReset");
+    DeviceEventEmitter.addListener("PlanReady", handleActiveButton);
+    DeviceEventEmitter.addListener("PlanReset", handleResetButton);
+
+    return () => {
+      DeviceEventEmitter.removeAllListeners("PlanReady");
+      DeviceEventEmitter.removeAllListeners("PlanReset");
+    };
+  }, []);
 
 
   return (
@@ -52,6 +74,16 @@ const PlanMaking = () => {
             );
           })}
         </Stack.Navigator>
+        <Button1
+          style={{ position: "absolute", bottom: 36 }}
+          text={"다음"}
+          onPress={() =>
+            DeviceEventEmitter.emit("PlanEvent", {
+              data: "Custom event data",
+            })
+          }
+          isActive={isButtonActive}
+        ></Button1>
         </View>
     </View>
   );
@@ -74,7 +106,6 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     marginTop : 20,
-    zIndex: 1,
   },
 
   headerFrame: {

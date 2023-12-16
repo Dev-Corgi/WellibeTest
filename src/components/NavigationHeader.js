@@ -24,8 +24,8 @@ const NavigationHeader = ({ color = Color.black(1), style }) => {
           position: "absolute",
           top: 5,
           left: -5,
-          width: 18.6*1.3,
-          height: 18.6*1.3,
+          width: 18.6*1.1,
+          height: 18.6*1.1,
         },
 
         backButton:{

@@ -2,6 +2,7 @@ import React, { useState, useEffect,useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack"; // Stack 네비게이션
 import {
+  DeviceEventEmitter,
   StyleSheet,
   View,
 } from "react-native";
@@ -13,6 +14,7 @@ import Registration1 from "./Registration1";
 import Registration2 from "./Registration2";
 import Registration3 from "./Registration3";
 import Registration4 from "./Registration4";
+import Button1 from "../components/Button1";
 
 import { ProgressContext } from "../store/ProgressContext";
 
@@ -26,6 +28,26 @@ const Registration = () => {
     { name: "Registration3", screen: Registration3 },
     { name: "Registration4", screen: Registration4 },
   ];
+
+  const [isButtonActive, setIsButtonActive] = useState(false);
+
+  function handleActiveButton() {
+    setIsButtonActive(true);
+  }
+
+  function handleResetButton() {
+    setIsButtonActive(false);
+  }
+
+  useEffect(() => {
+    DeviceEventEmitter.addListener("RegistrationReady", handleActiveButton);
+    DeviceEventEmitter.addListener("RegistrationReset", handleResetButton);
+
+    return () => {
+      DeviceEventEmitter.removeAllListeners("RegistrationReady");
+      DeviceEventEmitter.removeAllListeners("RegistrationReset");
+    };
+  }, []);
 
   return (
     <View style={styles.view}>
@@ -45,6 +67,16 @@ const Registration = () => {
           })}
         </Stack.Navigator>
         </View>
+        <Button1
+          style={{ position: "absolute", bottom: 36 }}
+          text={"다음"}
+          onPress={() =>
+            DeviceEventEmitter.emit("RegistrationEvent", {
+              data: "Custom event data",
+            })
+          }
+          isActive={isButtonActive}
+        ></Button1>
     </View>
   );
 };
@@ -66,7 +98,6 @@ const styles = StyleSheet.create({
     height: 681,
     display: "flex",
     flexDirection: "column",
-    zIndex: 1,
   },
 
   headerFrame: {

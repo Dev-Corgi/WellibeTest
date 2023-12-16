@@ -21,6 +21,25 @@ const PlanMaking1 = () => {
   const { screenName, setScreenName } = useContext(ScreenNameContext);
   const { progress, setProgress } = useContext(ProgressContext);
 
+  function handleRegistration () {
+    navigation.navigate("PlanMaking2");
+  }
+
+  function handleRegistrationReady () {
+    DeviceEventEmitter.emit('PlanReady', { data: 'Custom event data' });
+  }
+
+  useEffect(() => {
+    DeviceEventEmitter.emit('PlanReset', { data: 'Custom event data' });
+    // 커스텀 이벤트를 처리하는 함수 등록
+    DeviceEventEmitter.addListener('PlanEvent', handleRegistration);
+
+    // 컴포넌트가 언마운트될 때 리스너 해제
+    return () => {
+      DeviceEventEmitter.removeListener('PlanEvent', handleRegistration);
+    };
+  }, []);
+
   useEffect(() => {
     setScreenName("목적 선택")
     setProgress(25);
@@ -41,9 +60,9 @@ const PlanMaking1 = () => {
             "주름을 예방/개선하고 싶어요",
             "피부 처짐을 예방/개선하고 싶어요",
           ]}
-          onSelect={() => setisButtonActive(true)}
+          onSelect={handleRegistrationReady}
         ></SelectionList>
-      <Button1
+      {/* <Button1
         style={{ position: "absolute", bottom: 36 }}
         text={"다음"}
         onPress={() =>
@@ -52,7 +71,7 @@ const PlanMaking1 = () => {
           }}
         }
         isActive={isButtonActive}
-      ></Button1>
+      ></Button1> */}
     </View>
   );
 };

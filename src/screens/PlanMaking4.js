@@ -15,6 +15,26 @@ const PlanMaking4 = () => {
   const { screenName, setScreenName } = useContext(ScreenNameContext);
   const { progress, setProgress } = useContext(ProgressContext);
 
+  function handleRegistration () {
+    navigation.navigate("PlanMaking1");
+    navigation.navigate("PlanLoading");
+  }
+
+  function handleRegistrationReady () {
+    DeviceEventEmitter.emit('PlanReady', { data: 'Custom event data' });
+  }
+
+  useEffect(() => {
+    DeviceEventEmitter.emit('PlanReset', { data: 'Custom event data' });
+    // 커스텀 이벤트를 처리하는 함수 등록
+    DeviceEventEmitter.addListener('PlanEvent', handleRegistration);
+
+    // 컴포넌트가 언마운트될 때 리스너 해제
+    return () => {
+      DeviceEventEmitter.removeAllListeners('PlanEvent');
+    };
+  }, []);
+
   useEffect(() => {
     setScreenName("세부 설정")
     setProgress(100);
@@ -32,9 +52,9 @@ const PlanMaking4 = () => {
             '5분 이하',
             '5분 이상',
           ]}
-          onSelect = {() => setisButtonActive(true)}
+          onSelect = {handleRegistrationReady}
           ></SelectionList>
-      <Button1
+      {/* <Button1
           style={{ position: "absolute", bottom: 36 }}
           text={"다음"}
           onPress={() =>
@@ -44,7 +64,7 @@ const PlanMaking4 = () => {
             }}
           }
           isActive={isButtonActive}
-        ></Button1>
+        ></Button1> */}
     </View>
   );
 };

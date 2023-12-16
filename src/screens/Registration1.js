@@ -18,6 +18,26 @@ const Registration1 = () => {
   const { nickName, setNickName } = useContext(NicknameContext);
   const { progress, setProgress } = useContext(ProgressContext);
 
+  function handleRegistration () {
+    navigation.navigate("Registration2");
+  }
+
+  function handleRegistrationReady (nickName) {
+    if(nickName != ''){
+    DeviceEventEmitter.emit('RegistrationReady', { data: 'Custom event data' });
+    }
+  }
+
+  useEffect(() => {
+    DeviceEventEmitter.emit('RegistrationReset', { data: 'Custom event data' });
+
+    DeviceEventEmitter.addListener('RegistrationEvent', handleRegistration);
+
+    return () => {
+      DeviceEventEmitter.removeListener('RegistrationEvent', handleRegistration);
+    };
+  }, []);
+
   useEffect(() => {
     setScreenName("이름 선택")
     setProgress(25);
@@ -29,10 +49,10 @@ const Registration1 = () => {
         title={"웰리비에서 사용할\n닉네임을 알려주세요"}
         message = {"언제든 변경할 수 있어요"}
         ></RegistrationTooltip>
-        <TextInput style={styles.inputfieldFrame} placeholder='이름을 입력해 주세요' onChangeText={(inputText) => setNickName(inputText)} onEndEditing={() => setisButtonActive(true)}>
+        <TextInput style={styles.inputfieldFrame} placeholder='이름을 입력해 주세요' onChangeText={(inputText) => setNickName(inputText)} onEndEditing={handleRegistrationReady}>
         </TextInput>
         <Text style={styles.subtext}>수정을 원하시면 탭하여 주세요.</Text>
-      <Button1
+      {/* <Button1
           style={{ position: "absolute", bottom: 36 }}
           text={"다음"}
           onPress={() =>
@@ -40,7 +60,7 @@ const Registration1 = () => {
               if(isButtonActive) {navigation.navigate("Registration2")}}
           }
           isActive={isButtonActive}
-        ></Button1>
+        ></Button1> */}
     </View>
   );
 };

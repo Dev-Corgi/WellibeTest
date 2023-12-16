@@ -1,42 +1,63 @@
-import React, { useState, useEffect, useRef,useContext } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import {
+  DeviceEventEmitter,
   StyleSheet,
   View,
   Text,
   Pressable,
   Modal,
 } from "react-native";
-import { Color, FontFamily,height } from "../GlobalStyles";
+import { Color, FontFamily, height } from "../GlobalStyles";
 // import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from "@react-navigation/native";
 import WheelPickerExpo from "react-native-wheel-picker-expo";
-import RegistrationTooltip from '../components/RegistrationTooltip';
+import RegistrationTooltip from "../components/RegistrationTooltip";
 import Button1 from "../components/Button1";
 import { ScreenNameContext } from "../store/ScreenNameContext";
 import { ProgressContext } from "../store/ProgressContext";
 const Registration2 = ({ buttonCallBack }) => {
   const { screenName, setScreenName } = useContext(ScreenNameContext);
   const { progress, setProgress } = useContext(ProgressContext);
+  const [visible, setVisible] = useState(false); // 모달 노출 여부
+  const [date, onChangeDate] = useState("2023"); // 선택 날짜
+  const [isYear, setIsYear] = useState(false);
+
   const navigation = useNavigation();
 
   const startYear = 1923;
   const endYear = 2023;
+
+  function handleRegistration() {
+    navigation.navigate("Registration3");
+  }
+
+  function handleRegistrationReady() {
+    DeviceEventEmitter.emit("RegistrationReady", { data: "Custom event data" });
+  }
 
   const Years = Array.from(
     { length: endYear - startYear + 1 },
     (_, index) => startYear + index
   );
 
-  const [visible, setVisible] = useState(false); // 모달 노출 여부
-  const [date, onChangeDate] = useState("2023"); // 선택 날짜
-  const [isYear, setIsYear] = useState(false);
-
-  const [isButtonActive, setisButtonActive] = useState(false)
+  useEffect(() => {
+    setScreenName("출생 연도");
+    setProgress(50);
+  }, []);
 
   useEffect(() => {
-    setScreenName("출생 연도")
-    setProgress(50);
-    }, [])
+    DeviceEventEmitter.emit("RegistrationReset", { data: "Custom event data" });
+    // 커스텀 이벤트를 처리하는 함수 등록
+    DeviceEventEmitter.addListener("RegistrationEvent", handleRegistration);
+
+    // 컴포넌트가 언마운트될 때 리스너 해제
+    return () => {
+      DeviceEventEmitter.removeListener(
+        "RegistrationEvent",
+        handleRegistration
+      );
+    };
+  }, []);
 
   const onPress = () => {
     // 날짜 클릭 시
@@ -47,9 +68,8 @@ const Registration2 = ({ buttonCallBack }) => {
     // 날짜 또는 시간 선택 시
     onChangeDate(date); // 선택한 날짜 변경
     setIsYear(true);
-    setisButtonActive(true);
+    handleRegistrationReady();
   };
-
 
   return (
     <View style={styles.view}>
@@ -97,7 +117,7 @@ const Registration2 = ({ buttonCallBack }) => {
           </View>
         </Modal>
       )}
-      <Button1
+      {/* <Button1
         style={{ position: "absolute", bottom: 36 }}
         text={"다음"}
         onPress={() => {
@@ -106,7 +126,7 @@ const Registration2 = ({ buttonCallBack }) => {
           }
         }}
         isActive={isButtonActive}
-      ></Button1>
+      ></Button1> */}
     </View>
   );
 };
@@ -117,7 +137,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
   },
 
   contentFrame: {

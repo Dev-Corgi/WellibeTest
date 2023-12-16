@@ -1,5 +1,6 @@
 import React, { useState, useEffect,useContext } from "react";
 import {
+  DeviceEventEmitter,
   StyleSheet,
   View,
 } from "react-native";
@@ -7,7 +8,6 @@ import { Color, FontFamily ,height} from "../GlobalStyles";
 import SelectionList from "../components/SelectionList";
 import { useNavigation } from "@react-navigation/native";
 import RegistrationTooltip from '../components/RegistrationTooltip';
-import Button1 from "../components/Button1";
 import { ScreenNameContext } from "../store/ScreenNameContext";
 import { ProgressContext } from "../store/ProgressContext";
 const Registration3 = ({ buttonCallBack }) => {
@@ -16,6 +16,25 @@ const Registration3 = ({ buttonCallBack }) => {
   const [isButtonActive, setisButtonActive] = useState(false)
   const { screenName, setScreenName } = useContext(ScreenNameContext);
   const { progress, setProgress } = useContext(ProgressContext);
+
+  function handleRegistration () {
+    navigation.navigate("Registration4");
+  }
+
+  function handleRegistrationReady (nickName) {
+    DeviceEventEmitter.emit('RegistrationReady', { data: 'Custom event data' });
+  }
+
+  useEffect(() => {
+    DeviceEventEmitter.emit('RegistrationReset', { data: 'Custom event data' });
+    // 커스텀 이벤트를 처리하는 함수 등록
+    DeviceEventEmitter.addListener('RegistrationEvent', handleRegistration);
+
+    // 컴포넌트가 언마운트될 때 리스너 해제
+    return () => {
+      DeviceEventEmitter.removeListener('RegistrationEvent', handleRegistration);
+    };
+  }, []);
 
   useEffect(() => {
     setScreenName("성별 선택")
@@ -30,9 +49,9 @@ const Registration3 = ({ buttonCallBack }) => {
       ></RegistrationTooltip>
         <SelectionList style={{marginTop: 32}}
           selections={["남성", "여성", "기타"]}
-          onSelect={() => setisButtonActive(true)}
+          onSelect={handleRegistrationReady}
         ></SelectionList>
-      <Button1
+      {/* <Button1
         style={{ position: "absolute", bottom: 36 }}
         text={"다음"}
         onPress={() =>
@@ -41,7 +60,7 @@ const Registration3 = ({ buttonCallBack }) => {
           }}
         }
         isActive={isButtonActive}
-      ></Button1>
+      ></Button1> */}
     </View>
   );
 };

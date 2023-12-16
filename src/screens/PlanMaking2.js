@@ -20,6 +20,25 @@ const PlanMaking2 = () => {
   const { screenName, setScreenName } = useContext(ScreenNameContext);
   const { progress, setProgress } = useContext(ProgressContext);
 
+  function handleRegistration () {
+    navigation.navigate("PlanMaking3");
+  }
+
+  function handleRegistrationReady () {
+    DeviceEventEmitter.emit('PlanReady', { data: 'Custom event data' });
+  }
+  
+  useEffect(() => {
+    DeviceEventEmitter.emit('PlanReset', { data: 'Custom event data' });
+    // 커스텀 이벤트를 처리하는 함수 등록
+    DeviceEventEmitter.addListener('PlanEvent', handleRegistration);
+
+    // 컴포넌트가 언마운트될 때 리스너 해제
+    return () => {
+      DeviceEventEmitter.removeListener('PlanEvent', handleRegistration);
+    };
+  }, []);
+
   useEffect(() => {
     setScreenName("목표 선택")
     setProgress(50);
@@ -31,8 +50,8 @@ const PlanMaking2 = () => {
         title={"어떤 목적으로\n웰리비를 찾아주셨나요?"}
         message={"적절한 트레이닝 추천에 필요해요!"}
       ></RegistrationTooltip>
-          <ImageSelectionList  style={{marginTop: 32}} images={[GoalSelection1,GoalSelection2,GoalSelection3,GoalSelection4]} onSelect={() =>setisButtonActive(true)}></ImageSelectionList>
-      <Button1
+          <ImageSelectionList  style={{marginTop: 32}} images={[GoalSelection1,GoalSelection2,GoalSelection3,GoalSelection4]} onSelect={handleRegistrationReady}></ImageSelectionList>
+      {/* <Button1
           style={{ position: "absolute", bottom: 36 }}
           text={"다음"}
           onPress={() =>
@@ -41,7 +60,7 @@ const PlanMaking2 = () => {
             }}
           }
           isActive={isButtonActive}
-        ></Button1>
+        ></Button1> */}
     </View>
   );
 };
