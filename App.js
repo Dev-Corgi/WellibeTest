@@ -37,6 +37,7 @@ import config from "./tamagui.config";
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef();
 
+const update = "hiii"
 
 function App() {
   let [fontsLoaded] = useFonts({
