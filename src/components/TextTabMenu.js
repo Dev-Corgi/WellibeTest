@@ -1,6 +1,8 @@
 import React,{useState} from "react";
 import {Pressable, View,Text} from "react-native";
 
+//텍스트 탭 메뉴 컴포넌트
+
 const TextTabMenu = ({ list, gap ,currentIndex,setCurrentIndex, unActiveStyle,activeStyle,style }) => {
 
   return (

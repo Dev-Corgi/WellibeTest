@@ -4,6 +4,8 @@ import React,{useState,useEffect,useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import { StarterContext } from '../store/StarterContext';
 
+//로딩 화면
+//현재는 그냥 일정 시간 지나면 사라지게 했는데 서버와 연동후 작업하시면 됩니다
 
 const Loading = () => {
   const [loadingProgress, setloadingProgress] = useState(0)

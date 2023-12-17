@@ -2,8 +2,11 @@ import React from 'react';
 import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
 import { Color, FontFamily,height } from '../GlobalStyles';
 import WheelPickerExpo from "react-native-wheel-picker-expo";
+//알람 시간 설정 부에 있는 타이머 설정 코드
+//react-native-wheel-picker-expo 라이브러리로 구현하였습니다
 const AlarmTimer = ({style}) => {
 
+  //타임 테이블 초기화
     const hours= Array.from({ length: 25 }, (_, index) => 0 + index);
     const minutes= Array.from({ length: 61 }, (_, index) => 0 + index);
 
@@ -16,6 +19,7 @@ const AlarmTimer = ({style}) => {
   items={hours.map((name) => ({ label: name, value: "" }))}
   onChange={({ item }) => {
     // onConfirm(item.label);
+    //차후 서버 연동시 시간 전달 부분 작성
   }}
   renderItem={(props) => {
     return <Text style={styles.wheelLabel}>{props.label}</Text>;
@@ -44,7 +48,6 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         alignItems : "center",
-        // marginTop: 39,
         width: 290,
         height: 176,
         overflow: "hidden",

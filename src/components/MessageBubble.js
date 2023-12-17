@@ -2,6 +2,8 @@ import React from "react";
 import { StyleSheet, View, Text } from 'react-native';
 import { Color, FontFamily,height } from "../GlobalStyles";
 
+//채팅 부분에 있는 메세지 버블 컴포넌트
+
 const MessageBubble = ({message}) => {
   return (
     <View style={styles.message}>

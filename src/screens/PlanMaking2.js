@@ -1,7 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react';
 import {DeviceEventEmitter,StyleSheet, Image, View, Text} from 'react-native';
 import {Color, FontFamily,height} from '../GlobalStyles';
-import RegistrationInfo from '../components/RegistrationInfo';
 import {useNavigation} from '@react-navigation/native';
 import ImageSelectionList from '../components/ImageSelectionList';
 import GoalSelection1 from "../assets/img/goalSelection1.png"

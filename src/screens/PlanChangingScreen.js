@@ -16,6 +16,9 @@ import Calender from "../assets/img/CalenderImage.png";
 import PlanTable from "../assets/img/PlanTable.png";
 import AlarmTimer from "../components/AlarmTimer";
 import { Switch } from 'tamagui' // or '@tamagui/switch'
+
+//플랜 변경 화면
+
 const PlanChangingScreen = () => {
   const navigation = useNavigation();
   const [tabState, setTabState] = useState(0);

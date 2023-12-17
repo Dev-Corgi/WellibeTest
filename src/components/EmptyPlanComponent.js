@@ -5,9 +5,8 @@ import Ic_Check from "../assets/img/Ic_Check.png";
 import Ic_Reload from "../assets/img/Ic_Reload.png";
 import Ic_Gear2 from "../assets/img/Ic_Gear2.png";
 import { useNavigation } from "@react-navigation/native";
-const fullWidth = 326;
 
-
+//플랜 변경 화면에 있는 플랜 컴포넌트 (비었을때)
 const EmptyPlanComponent = ({}) => {
   const navigation = useNavigation();
   return (

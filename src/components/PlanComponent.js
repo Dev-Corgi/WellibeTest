@@ -6,6 +6,8 @@ import Ic_Reload from "../assets/img/Ic_Reload.png";
 import Ic_Gear2 from "../assets/img/Ic_Gear2.png";
 import { useNavigation } from "@react-navigation/native";
 
+//플랜 변경 화면에 있는 플랜 컴포넌트
+
 const PlanComponent = ({ isActive, category, title, season, startDuration, endDuration,backgroundImg}) => {
   
   const navigation = useNavigation();

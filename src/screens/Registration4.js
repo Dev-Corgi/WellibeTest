@@ -1,7 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react';
 import {DeviceEventEmitter,StyleSheet, Image, View, Text} from 'react-native';
 import {Color, FontFamily,height} from '../GlobalStyles';
-import RegistrationInfo from '../components/RegistrationInfo';
 import SelectionList from '../components/SelectionList';
 import {useNavigation} from '@react-navigation/native';
 import RegistrationTooltip from '../components/RegistrationTooltip';

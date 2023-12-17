@@ -7,10 +7,12 @@ import ProgressBar from "../components/ProgressBar";
 import Button1 from "../components/Button1";
 import { ImageContext } from "../store/ImageContext";
 import { ScreenNameContext } from "../store/ScreenNameContext";
-import RegistrationInfo from "../components/RegistrationInfo";
 import { AutoFocus, Camera, CameraType } from "expo-camera";
 import NavigationHeader from "../components/NavigationHeader";
 import RegistrationTooltip from "../components/RegistrationTooltip";
+
+//사진 확인 화면
+//현재 돌아가기가 제대로 작동하지 않는 이슈 존재
 
 const PhotoCheckScreen = () => {
   const { imageUri, setImageUri } = useContext(ImageContext);

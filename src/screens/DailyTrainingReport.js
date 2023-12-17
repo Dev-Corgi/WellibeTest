@@ -9,7 +9,11 @@ import PlanComponent from "../components/PlanComponent";
 import EmptyPlanComponent from "../components/EmptyPlanComponent";
 import BackImage1 from "../assets/img/BackImage1.png"
 import BackImage2 from "../assets/img/BackImage2.png"
+
+//일일 트레이닝 리포트 화면
+
 const DailyTrainingReport = () => {
+
   const { screenName, setScreenName } = useContext(ScreenNameContext);
 
   const navigation = useNavigation();

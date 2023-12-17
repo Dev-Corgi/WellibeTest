@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { StyleSheet, View, Text, Pressable, Image } from "react-native";
 import { Color, FontFamily,height } from "../GlobalStyles";
 
+//플랜 선택 화면에 있는 이미지 리스트 컴포넌트
+
 const ImageSelectionList = ({ images, style, onSelect }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
 

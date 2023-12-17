@@ -5,6 +5,8 @@ import LoginButton from '../components/LoginButton';
 import {useNavigation} from '@react-navigation/native';
 const Login = () => {
 
+  //로그인 화면
+
   const sloganMessage = "삶을 바꾸는\n건강한 자신감"
   const subSloganMessage = "1분 만에 루틴 추천맏고\n건강한 자신감을 만들어보세요"
 

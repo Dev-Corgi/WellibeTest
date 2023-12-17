@@ -8,6 +8,9 @@ import Calender from "../assets/img/CalenderImage.png"
 import PlanTable from "../assets/img/PlanTable.png"
 import NavigationHeader from '../components/NavigationHeader';
 import { ScreenNameContext } from '../store/ScreenNameContext';
+
+//오늘의 트레이닝 화면
+
 const TodayTraining = () => {
   const navigation = useNavigation();
   const [tabState, setTabState] = useState(0)

@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
 import { Color, FontFamily,height } from '../GlobalStyles';
 
+//기본 버튼 컴포넌트
+
 const Button1 = ({text,style,onPress,isActive = true}) => {
     return (
         <Pressable style={[styles.view,style,{backgroundColor: isActive ? style.backgroundColor ? style.backgroundColor : Color.navy(1) : Color.gray_200(1)}]} onPress = {() => {if(isActive){onPress()}}}>

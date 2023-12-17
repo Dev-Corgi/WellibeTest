@@ -5,6 +5,9 @@ import backButton from "../assets/img/backButton_White.png";
 import backButton_Black from "../assets/img/backButton.png"
 import {useNavigation} from '@react-navigation/native';
 import { ScreenNameContext } from "../store/ScreenNameContext";
+
+//네비게이션 헤더 컴포넌트 이미지 svg로 대체 필요
+
 const NavigationHeader = ({ color = Color.black(1), style }) => {
 
   const { screenName, setScreenName } = useContext(ScreenNameContext);

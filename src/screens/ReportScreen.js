@@ -12,6 +12,9 @@ import ic_heart_red from "../assets/img/ic_HeartRed.png"
 import faceMask from "../assets/img/faceMask.png"
 import ReportSlider from '../components/ReportSlider';
 import { ScreenNameContext } from '../store/ScreenNameContext';
+
+//사진 변화 확인 스크린
+
 const ReportScreen = () => {
 
   const { screenName, setScreenName } = useContext(ScreenNameContext);

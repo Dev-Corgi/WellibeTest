@@ -1,11 +1,13 @@
 import React,{useState,useEffect} from 'react';
 import {DeviceEventEmitter,StyleSheet, Image, View, Text, Pressable} from 'react-native';
 import {Color, FontFamily,height} from '../GlobalStyles';
-import RegistrationInfo from '../components/RegistrationInfo';
 import ProgressBar from '../components/ProgressBar';
 import {useNavigation} from '@react-navigation/native';
 import RegistrationTooltip from '../components/RegistrationTooltip';
 import Button1 from '../components/Button1';
+
+//플랜 로딩 화면
+
 const PlanLoading = () => {
 
   const [loadingProgress, setloadingProgress] = useState(0)

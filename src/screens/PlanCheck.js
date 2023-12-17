@@ -5,8 +5,15 @@ import Button1 from '../components/Button1';
 import {useNavigation} from '@react-navigation/native';
 import { StarterContext } from '../store/StarterContext';
 
+//플랜 확인 화면
 
 const PlanCheck = () => {
+
+//플랜 화면을 그대로 이후 플랜 변경 시 재사용 할지,
+//같은 코드로 다른 파일을 만들지 고민하다 임시로 같은 화면에서 루트에 따라 다르게 접근하는 파트인데
+//구현 방식에 따라 없애시면 됩니다
+//현재는 앱이 첫 실행이면 사진 촬영 파트로, 아니면 플랜 변경으로 넘어갈 겁니다
+
   const navigation = useNavigation();
 //나중에 없앨것
   const {isStarter,setIsStarter} = useContext(StarterContext)

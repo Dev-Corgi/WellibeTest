@@ -3,6 +3,9 @@ import {Color, FontFamily,height} from '../GlobalStyles';
 import React,{useState,useEffect,useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import { NicknameContext } from '../store/NicknameContext';
+
+//등록 절차 종료 화면
+
 const RegistrationDone = () => {
 
     const [loadingProgress, setloadingProgress] = useState(0)

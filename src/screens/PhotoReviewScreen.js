@@ -8,6 +8,9 @@ import { useNavigation } from "@react-navigation/native";
 import NavigationHeader from "../components/NavigationHeader";
 import Slider from "@react-native-community/slider";
 import { ScreenNameContext } from "../store/ScreenNameContext";
+
+//사진 평가 화면
+
 const PhotoReviewScreen = () => {
   const [sliderValue, setSliderValue] = useState(0);
   const { imageUri, setImageUri } = useContext(ImageContext);

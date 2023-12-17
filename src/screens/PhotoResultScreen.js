@@ -6,6 +6,8 @@ import {useNavigation} from '@react-navigation/native';
 import CheckVid from "@images/vid_checkAnimation.png"
 const PhotoResultScreen = () => {
 
+//사진 결과 화면
+
   const navigation = useNavigation();
 
   return (

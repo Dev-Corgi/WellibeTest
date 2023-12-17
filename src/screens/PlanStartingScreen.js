@@ -6,6 +6,9 @@ import Button1 from '../components/Button1';
 import {useNavigation} from '@react-navigation/native';
 import MessageBubble from '../components/MessageBubble';
 import ic_alert_red from "../assets/img/ic_alert_red.png"
+
+//플랜 시작 화면
+
 const PlanStartingScreen = () => { 
 
   const [isModal, setisModal] = useState(false)

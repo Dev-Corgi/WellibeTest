@@ -21,6 +21,12 @@ import PlanMaking4 from "./PlanMaking4";
 import { ProgressContext } from "../store/ProgressContext";
 import Button1 from "../components/Button1";
 
+//플랜 만들기 화면
+//이부분 화면은 조금 꼬여 있어서 재설계 하는게 나을 수도 있습니다
+//애니메이션 적용 없이 급하게 옆으로 넘기는 파트를 구현하느라 겉화면과 안 화면을 분리하고,
+//버튼을 따로 빼서 이벤트를 통해 다음으로 넘어가는 조건을 감지하는 식으로 구현했는데
+//애니메이션 트랜지션을 적용할 여유가 된다면 그 방식대로 새로 구현하는게 나을것 같습니다
+
 const PlanMaking = () => {
   const Stack = createNativeStackNavigator();
   const { progress, setProgress } = useContext(ProgressContext);

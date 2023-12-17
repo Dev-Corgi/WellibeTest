@@ -8,13 +8,16 @@ import MessageBubble from '../components/MessageBubble';
 import ic_flag from "../assets/img/ic_flag.png";
 import ic_gear from "../assets/img/ic_gear.png";
 import textLogo_Grey from "../assets/img/textLogo_Grey.png";
+
+//홈 스크린 화면
+
 const HomeScreen = () => {
 
     const [remainTime, setRemainTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     useEffect(() => {
       const targetTime = new Date();
-      targetTime.setDate(targetTime.getDate() + 6); // 1주일 후의 시간 설정
+      targetTime.setDate(targetTime.getDate() + 6); // 1주일 후의 시간 설정 (임시)
   
       const calculateTimeDifference = () => {
         const currentTime = new Date();

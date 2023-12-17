@@ -1,12 +1,14 @@
 import React,{useState,useEffect,useRef,useContext} from 'react';
 import {StyleSheet, Image, View, Text} from 'react-native';
 import {Color, FontFamily,height} from '../GlobalStyles';
-import RegistrationInfo from '../components/RegistrationInfo';
 import Button1 from '../components/Button1';
 import { AutoFocus, Camera, CameraType } from 'expo-camera';
 import { ImageContext } from "../store/ImageContext";
 import { navigationRef } from '../../App';
 import {useNavigation} from '@react-navigation/native';
+
+//사진 촬영 화면
+
 const PhotoTakenScreen = () => {
 
   const navigation = useNavigation();

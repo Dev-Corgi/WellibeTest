@@ -29,7 +29,6 @@ import HomeScreen from "./src/screens/HomeScreen";
 import DailyTrainingReport from "./src/screens/DailyTrainingReport";
 import TodayTraining from "./src/screens/TodayTraining";
 import ReportScreen from "./src/screens/ReportScreen";
-import { AlertDialogDemo } from "./src/components/AlartDialog";
 import PlanChangingScreen from "./src/screens/PlanChangingScreen";
 import PlanStartingScreen from "./src/screens/PlanStartingScreen";
 // import "./node_modules/@tamagui/core/reset.css"
@@ -38,7 +37,6 @@ import config from "./tamagui.config";
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef();
 
-const update = "h111";
 
 function App() {
   let [fontsLoaded] = useFonts({

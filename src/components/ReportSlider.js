@@ -5,6 +5,8 @@ import { Color, FontFamily,height } from '../GlobalStyles';
 import Slider from "@react-native-community/slider";
 import thumb from "../assets/img/thumb.png"
 
+//변화 확인 화면에서 쓰이는 이미지 슬라이더
+
 const ReportSlider = ({sliderValue, setSliderValue,style}) => {
 
     const styles = StyleSheet.create({

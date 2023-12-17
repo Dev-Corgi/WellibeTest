@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
 import { FontFamily,Color,height } from '../GlobalStyles';
-// import moderateScale from "react-native-size-matters"
+
+//채팅 부분에 있는 메세지 프레임 컴포넌트
 
 const MessageFrame = ({text}) => {
     return (

@@ -16,6 +16,9 @@ import RegistrationTooltip from '../components/RegistrationTooltip';
 import NavigationHeader from "../components/NavigationHeader";
 import AlarmTimer from "../components/AlarmTimer";
 import { ScreenNameContext } from "../store/ScreenNameContext";
+
+//알람 타이머 설정 화면
+
 const TimerSetScreen = () => {
 
   const hours= Array.from({ length: 25 }, (_, index) => 0 + index);

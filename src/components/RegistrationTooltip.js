@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
 import { FontFamily,Color,height } from '../GlobalStyles';
 
+//등록과정, 플랜 과정에서 쓰이는 화면 파트 상단 부분
+
 const RegistrationTooltip = ({style,title,message}) => {
     return (
         <View style = {[styles.view,style]}>

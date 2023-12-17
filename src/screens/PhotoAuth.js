@@ -8,12 +8,14 @@ import {
   Pressable,
   Alert,
 } from "react-native";
-import { Color, FontFamily ,height} from "../GlobalStyles";
-import RegistrationInfo from "../components/RegistrationInfo";
+import { Color, FontFamily, height } from "../GlobalStyles";
 import { useNavigation } from "@react-navigation/native";
 import { AutoFocus, Camera, CameraType } from "expo-camera";
-import RegistrationTooltip from '../components/RegistrationTooltip';
-import Button1 from '../components/Button1';
+import RegistrationTooltip from "../components/RegistrationTooltip";
+import Button1 from "../components/Button1";
+
+//사진 권한 확인 화면
+
 const PhotoAuth = () => {
   const navigation = useNavigation();
 
@@ -29,42 +31,42 @@ const PhotoAuth = () => {
 
   return (
     <View style={styles.view}>
-            <RegistrationTooltip
-        style = {{marginTop: 90}}
+      <RegistrationTooltip
+        style={{ marginTop: 90 }}
         title={"더나은 서비스 이용을 위해서는\n사진 촬영이 필요해요"}
-        message = {"변화 확인을 위해서는 사진 촬영이 필요해요."}
-        ></RegistrationTooltip>
-        <Image
-          style={styles.img}
-          source={require("../assets/img/AllowcationSplashImage.png")}
-        ></Image>
-        <View style={styles.guideTable}>
-          <View style={styles.guideLine}>
-            <Image
-              style={styles.guideCheckEmoji}
-              source={require("../assets/img/CheckAllowcation.png")}
-            ></Image>
-            <Text style={styles.guideText}>카메라 접근을 허용해 주세요</Text>
-          </View>
-          <View style={styles.guideLine}>
-            <Image
-              style={styles.guideCheckEmoji}
-              source={require("../assets/img/CheckAllowcation.png")}
-            ></Image>
-            <Text style={styles.guideText}>
-              안경을 쓰셨으면 안경을 벗어주세요
-            </Text>
-          </View>
-          <View style={styles.guideLine}>
-            <Image
-              style={styles.guideCheckEmoji}
-              source={require("../assets/img/CheckAllowcation.png")}
-            ></Image>
-            <Text style={styles.guideText}>
-              제시된 가이드에 얼굴을 맞춰주세요
-            </Text>
-          </View>
+        message={"변화 확인을 위해서는 사진 촬영이 필요해요."}
+      ></RegistrationTooltip>
+      <Image
+        style={styles.img}
+        source={require("../assets/img/AllowcationSplashImage.png")}
+      ></Image>
+      <View style={styles.guideTable}>
+        <View style={styles.guideLine}>
+          <Image
+            style={styles.guideCheckEmoji}
+            source={require("../assets/img/CheckAllowcation.png")}
+          ></Image>
+          <Text style={styles.guideText}>카메라 접근을 허용해 주세요</Text>
         </View>
+        <View style={styles.guideLine}>
+          <Image
+            style={styles.guideCheckEmoji}
+            source={require("../assets/img/CheckAllowcation.png")}
+          ></Image>
+          <Text style={styles.guideText}>
+            안경을 쓰셨으면 안경을 벗어주세요
+          </Text>
+        </View>
+        <View style={styles.guideLine}>
+          <Image
+            style={styles.guideCheckEmoji}
+            source={require("../assets/img/CheckAllowcation.png")}
+          ></Image>
+          <Text style={styles.guideText}>
+            제시된 가이드에 얼굴을 맞춰주세요
+          </Text>
+        </View>
+      </View>
       <Button1
         style={{
           position: "absolute",

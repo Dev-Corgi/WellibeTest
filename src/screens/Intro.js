@@ -6,12 +6,11 @@ import Button1 from '../components/Button1';
 import {useNavigation} from '@react-navigation/native';
 import MessageBubble from '../components/MessageBubble';
 
+//인트로 화면
+
 const Intro = () => {
 
   const navigation = useNavigation();
-
-
-
 
   return (
     <View style={styles.view}>
